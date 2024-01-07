@@ -1,0 +1,41 @@
+\begin{problem}
+  Give an example of a countably infinite collection of infinite sets
+  $A_1, A_2, A_3, ...$ with $A_j \cap A_k$ being inifinite for all
+  $j$ and $k$ such that $\displaystyle \bigcap_{j=1}^\infty A_j$ is nonempty
+  and finite.
+\end{problem}
+\begin{answer}
+  Let $A = \Z_{\geq 0} = \set{0, 1, 2, 3, \ldots}$ be the set of all nonnegative integers.
+  For each $i \in \N$, define $A_i = \set{a \in A \mid i \text{ divides } a}$.
+  That is, the $A_i$ is the set of all nonnegative integers that are divisible by $i$. 
+  Then:
+  \begin{align*}
+    A_1 &= \set{0, 1, 2, 3, \ldots} = A \\
+    A_2 &= \set{0, 2, 4, 6, \ldots} \\
+    A_3 &= \set{0, 3, 6, 9, \ldots} \\
+    A_4 &= \set{0, 4, 8, 12, \ldots} \\
+    A_5 &= \set{0, 5, 10, 15, \ldots} \\
+    &\vdots
+  \end{align*}
+  \begin{enumroman}
+    \item First, we'll show that $A_j \cap A_k$ is infinite for all $j$ and $k$.
+      For any arbitrary $j, k \in \N$;
+      \[
+        (A_j \cap A_k) = \set{0, jk , 2 \cdot jk, 3 \cdot jk, \ldots} = \set{ n \cdot jk \mid n \in \Z_{\geq 0}}.
+      \]
+      Since $\Z_{\geq 0}$ is infinite, $(A_j \cap A_k)$ is also infinite. \\
+    \item We'll then show that $\displaystyle \bigcap_{j=1}^\infty A_j$ is nonempty yet finite.
+      \begin{enumarabic}
+        \item $\displaystyle \bigcap_{j=1}^\infty A_j$ is nonempty.
+          Since $0 \in A_j$ for all $j \in \N$, then $0 \in \displaystyle \bigcap_{j=1}^\infty A_j$. \\
+        \item $\displaystyle \bigcap_{j=1}^\infty A_j$ is finite.
+          Precisely, $\displaystyle \bigcap_{j=1}^\infty A_j = \set{0}$.
+          Suppose, for contradiction, that $\displaystyle \bigcap_{j=1}^\infty A_j$
+          contains a non-zero element $x$.
+          This implies that $x$ is in every $A_j$, thus $x$ is divisible by every positive integer $j$.
+          Take $y = 2x$, then clearly $\displaystyle \frac{x}{y} = \frac{x}{2x} = \frac{1}{2}$,
+          which is not an integer, so $x$ is not divisible by $y$,
+          contradicting the assumption that $x$ is divisible by every positive integer.
+      \end{enumarabic}    
+  \end{enumroman}
+\end{answer}

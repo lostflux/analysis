@@ -1,0 +1,30 @@
+\begin{problem}
+  If $A, B, C$ are sets, show that
+  \[ (A \cup B) \setminus (A \cap B) = (A \setminus B) \cup (B \setminus A) \]
+\end{problem}
+
+\begin{answer}
+  To show that the two sets are equal, we will show that each set is a subset
+  of the other. That is, any arbitrary element in the first set must be in
+  the second set, and vice versa.
+
+  \begin{enumroman}
+    \item Let $x \in (A \cup B) \setminus (A \cap B)$. Then $x \in (A \cup B)$
+      and $x \notin (A \cap B)$.
+      \begin{enumarabic}
+        \item If $x \in A$, then $x \in (A \setminus B)$.
+        \item If $x \in B$, then $x \in (B \setminus A)$.
+      \end{enumarabic}
+      Therefore, $x \in (A \setminus B) \cup (B \setminus A)$.
+
+    \item Let $x \in (A \setminus B) \cup (B \setminus A)$. Then either $x \in (A \setminus B)$
+      or $x \in (B \setminus A)$.
+      \begin{enumarabic}
+        \item If $x \in (A \setminus B)$, then $x \in A$ and $x \notin B$.
+          Therefore, $x \in (A \cup B)$ and $x \notin (A \cap B)$.
+        \item If $x \in (B \setminus A)$, then $x \in B$ and $x \notin A$.
+          Therefore, $x \in (A \cup B)$ and $x \notin (A \cap B)$.
+      \end{enumarabic}
+      Therefore, $x \in (A \cup B) \setminus (A \cap B)$.
+  \end{enumroman}
+\end{answer}

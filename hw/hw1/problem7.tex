@@ -5,8 +5,43 @@
 \end{problem}
 
 \begin{answer}
+  \begin{definition}
+    A \emph{field} is a set $\F$ with two binary operations $+$ and $\times$
+    such that:
+    \begin{itemize}
+      \item $(\F, +)$ is an abelian group with identity $0$.
+      \item $(\F \setminus \{0\}, \times)$ is an abelian group with identity $1$.
+      \item $\times$ distributes over $+$.
+    \end{itemize}
+  \end{definition}
+
+  \step
+  Useful results in a field $\F$:
+  \begin{itemize}
+    \item $0 \times a = a \times 0 = 0$ for all $a \in \F$.
+  \end{itemize}
+
   \begin{enumroman}
-    \item Existence: Let $a \in \F$.
-      
+    \item First, we show that for any element $a \in \F$, there exists some element $b \in \F$
+      such that $a + b = 0$. Let $a \in \F$ be arbitrary. Then:
+      \begin{align*}
+        a \times 0 = 0 \\
+        a \times (1 + (-1)) = 0 \\
+        a \times 1 + a \times (-1) = 0 \\
+        a + (-a) = 0
+      \end{align*}
+
+    \item Next, we show that this element $b$ is unique by demonstrating
+      that if any two elements $b_1, b_2 \in \F$ satisfy $a + b_1 = 0$
+      and $a + b_2 = 0$, then $b_1 = b_2$.
+      Let $b_1, b_2 \in \F$ be selected as above.
+      Then:
+      \begin{align*}
+        b_1 &= b_1 + 0 \\
+            &= b_1 + (a + b_2) \\
+            &= (b_1 + a) + b_2 \\
+            &= 0 + b_2 \\
+            &= b_2
+      \end{align*}
   \end{enumroman}
 \end{answer}

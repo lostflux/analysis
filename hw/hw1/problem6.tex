@@ -3,5 +3,36 @@
 \end{problem}
 
 \begin{answer}
+  \begin{definition}
+    A function $f : A \to B$ is \emph{invertible} if there exists a function
+    $g : B \to A$ such that $g \circ f = \id_A$ and $f \circ g = \id_B$.
+  \end{definition}
+
+  \step
+  For the sake of contradiction, suppose that $f : A \to B$ is invertible
+  but not a bijection. Let $g : B \to A$ be its inverse.
+   \begin{enumroman}
+    \item Suppose $f$ is not an injection.
+      Then there exists some $a_1, a_2 \in A$,
+      $a_1 \neq a_2$, and some $b \in B$ such that $f(a_1) = f(a_2) = b$.
+      Since $g$ is the inverse of $f$, $g(f(x)) = x$ for all $x \in A$,
+      which implies that $g(b) = a_1$ and $g(b) = a_2$.
+      However, a function cannot map an element to two different elements,
+      so either $f$ is an injection or it must not be invertible.
+
+    \item Suppose $f$ is not a surjection.
+      Then there exists some $b \in B$ such that 
+      $f(a) \neq b$ for all $a \in A$.
+      However, $g$, the inverse of $f$, acts from $B$ to $A$,
+      so it must assign some element $a' \in A$ to $b$.
+      This implies that $g(b) = a'$ for some $a' \in A$.
+      But $g$ was taken to be the inverse of $f$, so it must map
+      $f(a') \mapsto a'$, where $f(a') \neq b$.
+      Therefore $g$ is not an injection (and, by the previous result,
+      not invertible). This contradicts the assumption that $g = f^{-1}$
+      as that would imply that $g$ is also invertible (with $f$ being its inverse).
+    
+   \end{enumroman}
+
 
 \end{answer}

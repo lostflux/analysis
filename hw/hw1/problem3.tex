@@ -1,18 +1,26 @@
 \begin{problem}
   Let $f : X \to Y$ be a function.
   Let $C$ and $D$ be subsets of $Y$.
-  Prove that \[ f^{-1}(X \cup D) = f^{-1}(C) \cup f^{-1}(D). \]
+  Prove that \[ f^{-1}(C \cup D) = f^{-1}(C) \cup f^{-1}(D). \]
 \end{problem}
 
 \begin{answer}
+  Recall the definition of the inverse image of a set:
+  \begin{definition}
+    Let $f : X \to Y$ be a function.
+    Let $C \subseteq Y$.
+    The \emph{inverse image} of $C$ under $f$ is the set
+    \[ f^{-1}(C) = \{ x \in X \mid f(x) \in C \}. \]
+  \end{definition}
+  
   To show that the two sets are equal, we will show that each set is a subset
   of the other. That is, any arbitrary element in the first set must be in
   the second set, and vice versa.
 
   \begin{enumroman}
-    \item Let $x \in f^{-1}(X \cup D)$. Then $f(x) \in X \cup D$.
+    \item Let $x \in f^{-1}(C \cup D)$. Then $f(x) \in (C \cup D)$.
       \begin{enumarabic}
-        \item If $f(x) \in X$, then $x \in f^{-1}(X)$.
+        \item If $f(x) \in C$, then $x \in f^{-1}(C)$.
         \item If $f(x) \in D$, then $x \in f^{-1}(D)$.
       \end{enumarabic}
       Therefore, $x \in f^{-1}(C) \cup f^{-1}(D)$.
@@ -21,10 +29,14 @@
       or $x \in f^{-1}(D)$.
       \begin{enumarabic}
         \item If $x \in f^{-1}(C)$, then $f(x) \in C$.
-          Therefore, $f(x) \in X \cup D$.
         \item If $x \in f^{-1}(D)$, then $f(x) \in D$.
-          Therefore, $f(x) \in X \cup D$.
       \end{enumarabic}
-      Therefore, $x \in f^{-1}(X \cup D)$.
+      Therefore, $f(x) \in (C \cup D)$, so $x \in f^{-1}(C \cup D)$.
   \end{enumroman}
+
+  \step
+  This means that $f^{-1}(C \cup D) \subseteq f^{-1}(C) \cup f^{-1}(D)$
+  and $f^{-1}(C \cup D) \supseteq f^{-1}(C) \cup f^{-1}(D)$,
+  which can only happen if the two sets are equal.
+
 \end{answer}

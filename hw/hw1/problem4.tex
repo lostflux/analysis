@@ -1,17 +1,63 @@
 \begin{problem}
-  Let $A = \set{1, 2, ..., n}$.
+  Let $A = \set{1, 2, \ldots, n}$.
   \begin{enumalph}
     \item Show that the cardinality of $\calP(A)$ is $2^n$.
       \begin{answer}
+        \textbf{For simplicity, let's use the notation
+        $A_n$ to denote the set $\set{1, 2, \ldots, n}$.}
+        \begin{proof}
+          This is a proof by induction on $n$.
 
+          \begin{enumroman}
+            \item \emph{Base Case}: $n = 0$\\
+              We show that $\abs{\calP(A_0)} = 2^0 = 1$.
+              Note that $A_0 = \emptyset$, since $A_0$ contains
+              zero elements. The only possible subset is the entire set
+              itself, so $\abs{\calP(A_0)} = 2^0 = 1$.
+            \item \emph{Induction Hypothesis}: \\
+              Assume that $\abs{\calP(A_n)} = 2^n$,
+              we show that $\abs{\calP(A_{n+1})} = 2^{n+1}$.
+            \item \emph{Inductive Step}:\\
+              We show that $\abs{\calP(A_{n+1})} = 2^{n+1}$.
+              \begin{align*}
+                \calP(A_{n+1}) &= \calP(A_n) \cup \set{a \cup \set{(n+1)}\, |\; a \in \calP(A_n)} \\
+                \intertext{
+                  However, $\calP(A_n)$ and $\set{a \cup \set{(n+1)}\, |\; a \in \calP(A_n)}$
+                  are disjoint!}
+                \intertext{This is because each element in
+                  $\set{a \cup \set{(n+1)}\, |\; a \in \calP(A_n)}$ contains
+                  the element $(n+1)$,}
+                \intertext{but no element in $\calP(A_n)$ contains
+                  the element $(n+1)$.
+                }
+                \Therefore \abs{\calP(A_{n+1})} &= \abs{\calP(A_n)} + \abs{\set{a \cup \set{(n+1)}\, |\; a \in \calP(A_n)}} \\
+                                                &= \abs{\calP(A_n)} + \abs{\calP(A_n)} \\
+                                                &= 2 \times \abs{\calP(A_n)} \\
+                                                &= 2 \cdot 2^n \\
+                                                &= 2^{n+1}
+              \end{align*}
+          \end{enumroman}
+        \end{proof}
       \end{answer}
     \item How many functions are there from $A$ to $A$? Explain.
       \begin{answer}
+        A function sends each point in the domain to exactly one point in the
+        codomain. Since there are $n$ points in the domain
+        and $n$ points in the codomain, there are $n$ choices for each point
+        to go to, so \textbf{there are $n^n$ functions from $A$ to $A$.}
+        However, most of these functions will be neither injective nor surjective!
 
       \end{answer}
     \item How many onto (surjective) functions are there from $A$ to $A$? Explain.
       \begin{answer}
-
+        A function is surjective if every point in the codomain is hit by
+        some point in the domain. In this case, the codomain and the domain
+        are the same set, so surjectivity also implies injectivity.
+        Thus; there are $n$ possible points for the first point to go to,
+        then $n-1$ possible points for the second point to go to
+        (since it can no longer map to the same point as the first point),
+        and $n-2$ possible points for the third point to go to, and so on.
+        \textbf{In total, there are $n!$ surjective functions from $A$ to $A$.}
       \end{answer}
   \end{enumalph}
 \end{problem}

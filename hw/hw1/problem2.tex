@@ -11,22 +11,32 @@
   \begin{enumroman}
     \item Let $x \in (A \cup B) \setminus (A \cap B)$. Then $x \in (A \cup B)$
       and $x \notin (A \cap B)$.
-      \begin{enumarabic}
+      \begin{enumalph}
         \item If $x \in A$, then $x \not \in B$ since $x \not \in (A \cap B)$. \\
           Therefore, $x \in (A \setminus B)$.
         \item If $x \in B$, then $x \not \in A$ since $x \not \in (A \cap B)$. \\
           Therefore, $x \in (B \setminus A)$.
-      \end{enumarabic}
+      \end{enumalph}
       Therefore, $x \in (A \setminus B) \cup (B \setminus A)$.
 
     \item Let $x \in (A \setminus B) \cup (B \setminus A)$. Then either $x \in (A \setminus B)$
       or $x \in (B \setminus A)$.
-      \begin{enumarabic}
+      \begin{enumalph}
         \item If $x \in (A \setminus B)$, then $x \in A$ and $x \notin B$.
           Therefore, $x \in (A \cup B)$ and $x \notin (A \cap B)$.
         \item If $x \in (B \setminus A)$, then $x \in B$ and $x \notin A$.
           Therefore, $x \in (A \cup B)$ and $x \notin (A \cap B)$.
-      \end{enumarabic}
+      \end{enumalph}
       Therefore, $x \in (A \cup B) \setminus (A \cap B)$.
   \end{enumroman}
+
+  \step
+  Thus:
+  \begin{enumarabic}
+    \item Each element in $(A \cup B) \setminus (A \cap B)$ is in $(A \setminus B) \cup (B \setminus A)$,
+      so $(A \cup B) \setminus (A \cap B) \subseteq (A \setminus B) \cup (B \setminus A)$.~\label{step:2.1}
+    \item Each element in $(A \setminus B) \cup (B \setminus A)$ is in $(A \cup B) \setminus (A \cap B)$,
+      so $(A \setminus B) \cup (B \setminus A) \subseteq (A \cup B) \setminus (A \cap B)$.~\label{step:2.2}
+    \item \ref{step:2.1} and \ref{step:2.2} imply that $(A \cup B) \setminus (A \cap B) = (A \setminus B) \cup (B \setminus A)$.
+  \end{enumarabic}
 \end{answer}

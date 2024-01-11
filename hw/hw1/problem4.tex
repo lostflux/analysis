@@ -18,19 +18,20 @@
               Assume that $\abs{\calP(A_n)} = 2^n$,
               we show that $\abs{\calP(A_{n+1})} = 2^{n+1}$.
             \item \emph{Inductive Step}:\\
-              We show that $\abs{\calP(A_{n+1})} = 2^{n+1}$.
+              How can we construct $\calP(A_{n+1})$ from $\calP(A_n)$?
+              An element in $\calP(A_{n+1})$ is either an element in
+              $\calP(A_n)$, or it is an addition of the element $(n+1)$
+              to an element in $\calP(A_n)$. Thus; 
+              \[
+                \calP(A_{n+1}) = \calP(A_n) \cup \set{a \cup \set{(n+1)}\, |\; a \in \calP(A_n)}
+              \]
+              However, $\calP(A_n)$ and $\set{a \cup \set{(n+1)}\, |\; a \in \calP(A_n)}$
+              are disjoint, since each element in \\
+              \crim{$\set{a \cup \set{(n+1)}\, |\; a \in \calP(A_n)}$} contains
+              the element $(n+1)$, but no element in $\calP(A_n)$ contains the element $(n+1)$.
+              Therefore;
               \begin{align*}
-                \calP(A_{n+1}) &= \calP(A_n) \cup \set{a \cup \set{(n+1)}\, |\; a \in \calP(A_n)} \\
-                \intertext{
-                  However, $\calP(A_n)$ and $\set{a \cup \set{(n+1)}\, |\; a \in \calP(A_n)}$
-                  are disjoint!}
-                \intertext{This is because each element in
-                  $\set{a \cup \set{(n+1)}\, |\; a \in \calP(A_n)}$ contains
-                  the element $(n+1)$,}
-                \intertext{but no element in $\calP(A_n)$ contains
-                  the element $(n+1)$.
-                }
-                \Therefore \abs{\calP(A_{n+1})} &= \abs{\calP(A_n)} + \abs{\set{a \cup \set{(n+1)}\, |\; a \in \calP(A_n)}} \\
+                \abs{\calP(A_{n+1})} &= \abs{\calP(A_n)} + \abs{\set{a \cup \set{(n+1)}\, |\; a \in \calP(A_n)}} \\
                                                 &= \abs{\calP(A_n)} + \abs{\calP(A_n)} \\
                                                 &= 2 \times \abs{\calP(A_n)} \\
                                                 &= 2 \cdot 2^n \\

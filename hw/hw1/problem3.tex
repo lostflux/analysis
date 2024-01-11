@@ -18,25 +18,33 @@
   the second set, and vice versa.
 
   \begin{enumroman}
-    \item Let $x \in f^{-1}(C \cup D)$. Then $f(x) \in (C \cup D)$.
+    \item Let $x \in f^{-1}(C \cup D)$. Then, by the definition of the inverse image,
+      $f(x) \in (C \cup D)$.
       \begin{enumarabic}
-        \item If $f(x) \in C$, then $x \in f^{-1}(C)$.
-        \item If $f(x) \in D$, then $x \in f^{-1}(D)$.
+        \item If $f(x) \in (C \cup D)$, then either $f(x) \in C$ or $f(x) \in D$, or both.
+        \item If $f(x) \in C$, then $x \in f^{-1}(C)$.~\label{step:3.1}
+        \item If $f(x) \in D$, then $x \in f^{-1}(D)$.~\label{step:3.2}
       \end{enumarabic}
-      Therefore, $x \in f^{-1}(C) \cup f^{-1}(D)$.
+      But~\ref{step:3.1} and \ref{step:3.2} imply that $x \in f^{-1}(C) \cup f^{-1}(D)$.
 
-    \item Let $x \in f^{-1}(C) \cup f^{-1}(D)$. Then either $x \in f^{-1}(C)$
-      or $x \in f^{-1}(D)$.
+    \item Let $x \in f^{-1}(C) \cup f^{-1}(D)$. Then:
       \begin{enumarabic}
-        \item If $x \in f^{-1}(C)$, then $f(x) \in C$.
-        \item If $x \in f^{-1}(D)$, then $f(x) \in D$.
+        \item Either $x \in f^{-1}(C)$ or $x \in f^{-1}(D)$ (or both!).
+        \item If $x \in f^{-1}(C)$, then $f(x) \in C$.~\label{step:3.3}
+        \item If $x \in f^{-1}(D)$, then $f(x) \in D$.~\label{step:3.4}
       \end{enumarabic}
-      Therefore, $f(x) \in (C \cup D)$, so $x \in f^{-1}(C \cup D)$.
+      But~\ref{step:3.3} and \ref{step:3.4} imply that $f(x) \in (C \cup D)$. \\
+      By definition of the inverse image, this means that $x \in f^{-1}(C \cup D)$.
   \end{enumroman}
 
   \step
-  This means that $f^{-1}(C \cup D) \subseteq f^{-1}(C) \cup f^{-1}(D)$
-  and $f^{-1}(C \cup D) \supseteq f^{-1}(C) \cup f^{-1}(D)$,
-  which can only happen if the two sets are equal.
+  Thus:
+  \begin{enumarabic}
+    \item Each element in $f^{-1}(C \cup D)$ is in $f^{-1}(C) \cup f^{-1}(D)$,
+      so $f^{-1}(C \cup D) \subseteq f^{-1}(C) \cup f^{-1}(D)$.~\label{step:3.5}
+    \item Each element in $f^{-1}(C) \cup f^{-1}(D)$ is in $f^{-1}(C \cup D)$,
+      so $f^{-1}(C) \cup f^{-1}(D) \subseteq f^{-1}(C \cup D)$.~\label{step:3.6}
+    \item \ref{step:3.5} and \ref{step:3.6} imply that $f^{-1}(C \cup D) = f^{-1}(C) \cup f^{-1}(D)$.
+  \end{enumarabic}
 
 \end{answer}

@@ -12,13 +12,17 @@
   For the sake of contradiction, suppose that $f : A \to B$ is invertible
   but not a bijection. Let $g : B \to A$ be its inverse.
    \begin{enumroman}
+    \item If $f$ is not a bijection, then either it is not an injection or
+      it is not a surjection (or both!).
     \item Suppose $f$ is not an injection.
       Then there exists some $a_1, a_2 \in A$,
       $a_1 \neq a_2$, and some $b \in B$ such that $f(a_1) = f(a_2) = b$.
-      Since $g$ is the inverse of $f$, $g(f(x)) = x$ for all $x \in A$,
+      Since $g$ is the inverse of $f$, we have $g(f(x)) = x$ for all $x \in A$,
       which implies that $g(b) = a_1$ and $g(b) = a_2$.
-      However, a function cannot map an element to two different elements,
-      so either $f$ is an injection or it must not be invertible.
+      But $a_1 \neq a_2$, implying that $g$ maps $b$ to two different elements
+      hence $g$ is not a function.
+      Therefore, any apparent inverse of $f$ is not a function, contradicting
+      the assumption that $f$ is invertible.~\label{step:6.1}
 
     \item Suppose $f$ is not a surjection.
       Then there exists some $b \in B$ such that 
@@ -27,10 +31,12 @@
       so it must assign some element $a' \in A$ to $b$.
       This implies that $g(b) = a'$ for some $a' \in A$.
       But $g$ was taken to be the inverse of $f$, so it must map
-      $f(a') \mapsto a'$, where $f(a') \neq b$.
-      Therefore $g$ is not an injection (and, by the previous result,
-      not invertible). This contradicts the assumption that $g = f^{-1}$
-      as that would imply that $g$ is also invertible (with $f$ being its inverse).
+      $f(a') = a'$, where $f(a') \neq b$ (since we picked $b$ to be outside the image of $f$).
+      Therefore, $g$ maps two different elements of $B$ to the same element $a' \in A$,
+      so $g$ is not injective.
+      From the previous result in~\ref{step:6.1}, this implies that $g$ is not invertible.
+      If $g$ is not invertible then it cannot be the inverse of $f$,
+      so $f$ is also not invertible.
     
    \end{enumroman}
 

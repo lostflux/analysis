@@ -6,5 +6,36 @@
 \end{problem}
 
 \begin{answer}
+  \begin{definition}
+    A set $A \subset X$ is open if each point in $A$ has an open ball
+    contained in $A$.
+  \end{definition}
 
+  \step
+  Let $A$ be an open set.
+  Then, by definition, each point in $A$ has some open ball contained in $A$.
+  Let $B$ be the union of all such open balls.
+  
+  \begin{claim}
+    $A \subseteq B$.
+    \begin{proof}
+      Let $a \in A$ be arbitrary.
+      Since $A$ is an open set, $a$ has some open ball $\ball{r}{a}$ contained in $A$.
+      This ball must contain $a$ itself, and since $B$ is the union of all such open balls,
+      $B$ must also contain $a$. Therefore, $a \in B$.
+    \end{proof}
+  \end{claim}
+
+  \begin{claim}
+    $A \supseteq B$.
+    \begin{proof}
+      Let $b \in B$ be arbitrary.
+      Since $B$ is the union of a collection of open balls contained in
+      $A$, the point $b$ must be in some open ball contained in $A$.
+      Therefore, $b$ itself must also be in $A$, so $b \in A$.
+    \end{proof}
+  \end{claim}
+
+  \step
+  Since $A \subseteq B$ and $A \supseteq B$, $A = B$.
 \end{answer}

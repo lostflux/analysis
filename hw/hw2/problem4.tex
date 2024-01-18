@@ -4,7 +4,57 @@
   $a_k < a_m$ whenever $k < m$, and $b_k < b_m$ whenever $k < m$.
   \begin{enumalph}
     \item Show that $S$ is an ordered set.
+      \begin{answer}
+        $S$ is an ordered set if there exists a relation $<$ on $S$ such that:
+        \begin{enumarabic}
+          \item For all $a, b \in S$, exactly one of $a < b$, $a = b$, or $b < a$ holds.
+          \item If $a < b$ and $b < c$, then $a < c$.
+          \item If $a < b$, then $a + c < b + c$.
+        \end{enumarabic}
+
+        \step
+        Let $<$ be as defined in the problem statement.
+        We will show that $<$ satisfies the above properties.
+
+        \step
+        Let $x, y, z \in S$ be arbitrary.
+        
+        \begin{enumroman}
+          \item If $x \neq y$, then:
+            \begin{enumarabic}
+              \item If $x = a_k$ and $y = a_m$ with $k < m$ then $x < y$. Otherwise, $y < x$.
+              \item If $x = a_k$ and $y = b_j$, then $x < y$.
+              \item If $x = b_k$ and $y = b_j$ with $k < j$, then $x < y$.
+            \end{enumarabic}
+          \item If $x < y$ and $y < z$, then:
+            \begin{enumarabic}
+              \item If $x = a_k$ and $y = a_m$ with $k < m$, then either $z = a_n, n > m$ or $z = b_j$ for some $j$. Therefore, $x < z$.
+              \item If $x = a_k$ and $y = b_j$ for some $j$, then $z = b_n$ for some $n > j$. Therefore, $x < z$.
+              \item If $x = b_j$ and $y = b_k$ for some $j, k$, $j < k$m then $z = b_n$ for some $n > j$. Therefore, $x < z$.
+            \end{enumarabic}
+        \end{enumroman}
+        
+      \end{answer}
     \item Show that every subset of $S$ is bounded above and below.
+      \begin{answer}
+        From the definition of $S$, $a_k < b_j$ for all $k$ and $j$.
+        If $S'$ is any subset of $S$, then $S'$ is bounded above by the biggest $b_j \in S'$
+        and bounded below by the smallest $a_k \in S'$.
+        
+      \end{answer}
     \item Find a bounded subset of $S$ that has no least upper bound.
+      \begin{answer}
+        The set \[ B = \set{b_j \given j \in \N} \subset S \]
+        is bounded below (by any $a_k \in S$) and above (by the largest $b_j \in B$),
+        but does not have a least upper bound.
+
+        \step
+        As a proof by contradiction, supposing $ \lub B = \sigma$.
+        First note that $B$ contains elements of the form $b_j, j \in \N$.
+        Therefore, $\sigma$ must be some element $b_x$ for some $x \in \N$, since the ordering
+        rules defined that all $a_k$ are ordered below any $b_j$.
+        Now, the element $b_{x + 1}$ is also in $B$, and $b_x < b_{x+1}$ by the ordering
+        rules, contradicting that we took $b_x$ to be the least upper bound of $B$.        
+      \end{answer}
   \end{enumalph}
 \end{problem}

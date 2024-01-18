@@ -1,8 +1,77 @@
 \begin{problem}
-  Let $n \in \N$. Sshow that $(\R^n, d_1)$ is a metric space
+  Let $n \in \N$. Show that $(\R^n, d_1)$ is a metric space
   where \[ d_1(p, q) \colonequals \sum_1^n \abs{p_i - q_i} \]
   for all $p = (p_1, \dots, p_n)$ and $q = (q_1, \dots, q_n)$ in $\R^n$.
 \end{problem}
 \begin{answer}
+  $(R^n, d_1)$ is a metric space if $d_1$ satisfies the following properties:
+  \begin{enumarabic}
+    \item $d_1(p, q) \geq 0$ for all $p, q \in \R^n$.
+      and $d_1(p, q) = 0$ if and only if $p = q$.
+    \item $d_1(p, q) = d_1(q, p)$ for all $p, q \in \R^n$.
+    \item $d_1(p, r) \leq d_1(p, q) + d_1(q, r)$ for all $p, q, r \in \R^n$.
+  \end{enumarabic}
 
+  \begin{claim}
+    $d_1(p, q) \geq 0$ for all $p, q \in \R^n$.
+
+    \begin{proof}
+      Let $p, q \in \R^n$ be arbitrary.
+      Then, since $\abs{x + y} \geq 0$ for all $x, y \in \R$,
+      $\abs{p_i - q_i} \geq 0$ for all $i \in \set{1, \dots, n}$. \\
+      Therefore,
+      \[ d_1(p, q) = \sum_1^n \abs{p_i - q_i} \geq 0. \]
+    \end{proof}
+  \end{claim}
+
+  \begin{claim}
+    $d_1(p, q) = 0$ if and only if $p = q$.
+
+    \begin{proof}
+      Let $p, q \in \R^n$ be arbitrary.
+
+      \step $(\Longrightarrow)$:
+        Suppose $d_1(p, q) = 0$.
+        Then, since $\abs{p_i - q_i} \geq 0$ for all $i \in \set{1, \dots, n}$,
+        \[ d_1(p, q) = \sum_1^n \abs{p_i - q_i} = 0 \]
+        implies that $\abs{p_i - q_i} = 0$ for all $i \in \set{1, \dots, n}$.
+        This implies that $p_i = q_i$ for all $i \in \set{1, \dots, n}$,
+        and therefore $p = q$.
+
+      \step $(\Longleftarrow)$:
+        Suppose $p = q$.
+        This means that $p_i = q_i$ for all $i \in \set{1, \dots, n}$,
+        meaning $\abs{p_i - q_i} = 0$, so
+        \[ \sum_1^n \abs{p_i - q_i} = d_1(p, q) = 0. \]
+    \end{proof}
+  \end{claim}
+
+  % \newpage
+  \begin{claim}
+    $d_1(p, q) = d_1(q, p)$ for all $p, q \in \R^n$.
+
+    \begin{proof}
+      Let $p, q \in \R^n$ be arbitrary.
+      Since $\abs{x + y} = \abs{y + x}$ for all $x, y \in \R$,
+      $\abs{p_i - q_i} = \abs{q_i - p_i}$ for all $i \in \set{1, \dots, n}$. \\ Therefore,
+      \[ d_1(p, q) = \sum_1^n \abs{p_i - q_i} = \sum_1^n \abs{q_i - p_i} = d_1(q, p). \]
+    \end{proof}
+  \end{claim}
+
+  \newpage
+  \begin{claim}
+    $d_1(p, r) \leq d_1(p, q) + d_1(q, r)$ for all $p, q, r \in \R^n$.
+
+    \begin{proof}
+      Let $p, q, r \in \R^n$ be arbitrary, then:
+      \begin{alignat*}{4}
+        & d_1(p, r) &&= \sum_1^n \abs{p_i - r_i} \\
+        &           &&= \sum_1^n \abs{p_i - q_i + q_i - r_i} \, && \,\crim{\leq} \sum_1^n \abs{p_i - q_i} + \abs{q_i - q_i} &&= \sum_1^n \abs{p_i - q_i} + \sum_1^n \abs{q_i - q_i} \\
+        &           &&                                       &&                                                &&= d_1(p, q) + d_1(q, r)
+      \end{alignat*}
+    \end{proof}
+  \end{claim}
+
+  \step
+  Since all the properties hold, $(\R^n, d_1)$ is a metric space.
 \end{answer}

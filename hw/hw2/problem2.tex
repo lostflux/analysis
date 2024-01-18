@@ -7,4 +7,71 @@
 
 \begin{answer}
 
+  \textbf{Multiplication} \\
+  First, note that $0 \cdot a = a \cdot 0 = 0$ for all $a \in F$. \\
+  This is because multiplication distributes over addition,
+  so $0 \cdot a = (1 + (-1)) \cdot a = a + (-a) = 0$.
+
+  \step
+  Next, since $1$ is the multiplicative identity, $1 \cdot a = a \cdot 1 = a$ for all $a \in F$.
+
+  \step
+  There are three possible ways to define $2 \cdot 2$:
+
+  \begin{enumarabic}
+    \item \crim{If $2 \cdot 2 = 0$, then multiplying both sides by $2^{-1}$ implies that $2 = 0$.
+      This is a contradiction.}
+    \item \crim{If $2 \cdot 2 = 2$, then multiplying both sides by $2^{-1}$ implies that $2 = 1$.
+      This is a contradiction.}
+    \item Therefore, multiplication is only well-defined if $2 \cdot 2 = 1$.~\label{step:3times}
+  \end{enumarabic}
+
+  \step
+  Since $0$ is the additive identity, $0 + a = a + 0 = a$ for all $a \in F$. \\
+  Similarly, $ 1 \cdot a = a \cdot 1 = a$ for all $a \in F$.
+
+  \step
+  \textbf{Addition} \\
+  There are three potential ways to define addition:
+  \begin{enumarabic}
+    \item \crim{If $1 + 1 = 0$, this implies $1 = -1$. \\
+      For addition to be well-defined, we must also have $2+2 = 0$
+      since $2$ must also have an additive inverse. \\
+      How do we define $1 + 2$?
+      \begin{enumroman}
+        \item If $1 + 2 = 0$, then $1 = -2$, suggesting that $1$ has two additive inverses
+          since $1 + 1 = 1 + 2 = 0$. But each element must have a unique inverse, so this is a contradiction.
+        \item If $1 + 2 = 1$, then adding $-1$ to both sides implies that $2 = 0$, a contradiction.
+        \item If $1 + 2 = 2$, then adding $-2$ to both sides implies that $1 = 0$, a contradiction.
+      \end{enumroman}}
+    \item If $1 + 1 = 2$. then $1 + 2 = 2 + 1 = 0$ (since both $1$ and $2$ must have additive inverses). \\
+      This is not consistent with multiplication as defined in~\ref{step:3times} above,
+      since:
+      \begin{enumroman}
+        \item $2 \cdot (1 + 2) = 2 \cdot 0 = 0$.
+        \item $2 \cdot (1 + 2) = 2 \cdot 1 + 2 \cdot 2 = 2 + 1 = 0$
+      \end{enumroman}
+    \item \crim{$1 + 1 = 1$ implies that $1 = 0$ (by adding $-1$ to both sides).
+      This is a contradiction, since $1 \neq 0$.}
+  \end{enumarabic}
+
+  Thus, there is only one way to define addition and multiplication such that $F$ is a field:
+
+  \begin{align*}
+    0 + 0 &= 0 \\
+    0 + 1 = 1 + 0 &= 1 \\
+    0 + 2 = 2 + 0 &= 2 \\
+    1 + 1 &= 2 \\
+    1 + 2 = 2 + 1 &= 0 \\
+    2 + 2 &= 1 \\ \\
+    0 \cdot 0 &= 0 \\
+    0 \cdot 1 = 1 \cdot 0 &= 0 \\
+    0 \cdot 2 = 2 \cdot 0 &= 0 \\
+    1 \cdot 1 &= 1 \\
+    1 \cdot 2 = 2 \cdot 1 &= 2 \\
+    2 \cdot 2 &= 1
+  \end{align*}
+
+
+
 \end{answer}

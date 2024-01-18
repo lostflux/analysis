@@ -1,8 +1,24 @@
 \begin{problem}
   If $S_1$ and $S_2$ are nonempty subsets of $\R$ that are bounded above,
-  prove that \[ \sup \set{x + y \given x \in S_1, y \in S_2} = \sup S1 + \sup S_2. \]
+  prove that \[ \sup \set{x + y \given x \in S_1, y \in S_2} = \sup S_1 + \sup S_2. \]
 \end{problem}
 
 \begin{answer}
+  We shall prove this in two steps, first showing that
+  $\sup \set{x + y \given x \in S_1, y \in S_2} \leq \sup S_1 + \sup S_2$,
+  and then showing that $\sup \set{x + y \given x \in S_1, y \in S_2} \geq \sup S_1 + \sup S_2$.
+
+  \begin{enumroman}
+    \item Let $s_1 \in S_1$ and $s_2 \in S_2$ be arbitrary. \\
+      Since $s_1 + s_2 \in \set{x + y \given x \in S_1, y \in S_2}$, $s_1 + s_2 \leq \sup \set{x + y \given x \in S_1, y \in S_2}$. \\
+      This holds for any selection of $s_1 \in S_1$ and any selection of $s_2 \in S_2$, \\
+      so $\sup S_1 + \sup S_2 \leq \sup \set{x + y \given x \in S_1, y \in S_2}$.
+    \item Let $s \in \set{x + y \given x \in S_1, y \in S_2}$ be arbitrary. \\
+      Then, by definition, $s = x + y$ for some $x \in S_1$ and $y \in S_2$. \\
+      Since $x \leq \sup S_1$ and $y \leq \sup S_2$; $s = x + y \leq \sup S_1 + \sup S_2$. \\
+      This holds for all elements $s \in \set{x + y \given x \in S_1, y \in S_2}$, \\
+      so $\sup \set{x + y \given x \in S_1, y \in S_2} \leq \sup S_1 + \sup S_2$.
+      
+  \end{enumroman}
 
 \end{answer}

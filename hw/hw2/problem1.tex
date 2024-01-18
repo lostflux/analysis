@@ -3,16 +3,33 @@
   Show that $A$ cannot be an ordered field.
 \end{problem}
 \begin{answer}
-  Suppose $A$ is an ordered field,
-  with $0$ as the additive identity element, and $1$ as the multiplicative identity element
-  such that $0 < 1$.
+  To show this, we will show that any ordered field must have infinitely many elements.
 
   \step
-  First, note that for any $a \in A$, $a + 1 \in A$,
-  and $a \le a + 1$ since $0 < 1$.
-  
-  Let $a \in A$ be arbitrary.
-  Since $A$ is an ordered field, $a + 1 \in A$.
-  Since $A$ is an ordered field, $a + 1 > a$.
+  Let $F$ be an ordered field, with $0$ and $1$ as the additive
+  and multiplicative identities, and $0 < 1$.
+
+  Recall the following properties of ordered fields:
+  \begin{enumarabic}
+    \item $0 < 1$
+    \item $0 < a < b \implies 0 < a^{-1} < b^{-1}$
+    \item $0 < a < b \implies 0 < a + c < b + c$
+    \item $0 < a < b \land 0 < c \implies 0 < ac < bc$
+  \end{enumarabic}
+
+  \step
+  Since $0 < 1$, adding $1$ to both sides implies $1 < 1+1$.
+  Repeating this process infinitely many times, we get:
+  \begin{align*}
+    0 &< 1 \\
+    1 &< 1 + 1 \qquad (= 2) \\
+    1 + 1 &< 1 + 1 + 1 \qquad (= 3) \\
+    1 + 1 + 1 &< 1 + 1 + 1 + 1 \qquad (= 4) \\
+    &\vdots
+  \end{align*}  
+  For any element $a \in F$, the element $a + 1$ must be in $F$ (since fields are closed under addition)
+  and it must be greater than $a$. Similarly, no addition of two elements
+  $a, b$, with $0 < a$ and $0 < b$, can ever equal $0$.
+  This can only happen if $F$ is infinite.
   
 \end{answer}

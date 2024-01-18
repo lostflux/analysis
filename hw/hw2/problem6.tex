@@ -1,9 +1,69 @@
 \begin{problem}
-  Show that the subset of $(R^2, d_E)$ given by
+  Show that the subset of $(\R^2, d_E)$ given by
   \[ S \colonequals \set{(x_1, x_2) \in \R^2 \given x_1 > x_2} \]
   is open.
 \end{problem}
 
 \begin{answer}
+  \begin{definition}
+    A set is open if each point in the set has an open ball
+    contained in the set.
+  \end{definition}
 
+  \step
+  Let $p = (p_1, p_2) \in S$ be arbitrary.
+  We shall show that any such point has some open ball surrounding it
+  that is contained in $S$.
+  
+  \step
+  By definition of $S$, $p_1 > p_2$. Pick \[ r = \frac{p_1 - p_2}{\sqrt{2}} \]
+  such that \[ p_1 - \frac{r}{\sqrt{2}} = p_2 + \frac{r}{\sqrt{2}}. \]
+
+  Let $\frakB = \ball{r}{p} \subset S$.
+
+  \begin{claim}
+    $\frakB$ is open.
+    \begin{proof}
+      To show this, we show that $\frakB$ does not contain its boundary. \\
+      Take the point $q = (q_1, q_2)$ with $\displaystyle q_1 = p_1 - \frac{r}{\sqrt{2}}$
+      and $\displaystyle q_2 = p_2 + \frac{r}{\sqrt{2}}$:
+      
+      \begin{enumarabic}
+        \item $q$ is on the boundary of $\frakB$. Or, more precisely, $d_E(p, q) = r$.
+        \begin{align*}
+          d_E(p, q) &= \sqrt{(p_1 - q_1)^2 + (p_2 - q_2)^2} \\
+                    &= \sqrt{\parens{p_1 - \parens{p_1 - \frac{r}{\sqrt{2}}}}^2 + \parens{p_2 - \parens{p_2 + \frac{r}{\sqrt{2}}}}^2} \\
+                    &= \sqrt{\frac{r^2}{2} + \frac{r^2}{2}} \\
+                    &= \sqrt{r^2} \\
+                    &= r
+        \end{align*}
+
+        \item $q$ is not in $\frakB$.
+          We picked $q$ such that $q_1 = p_1 - \frac{r}{\sqrt{2}} = p_2 + \frac{r}{\sqrt{2}} = q_2$.
+          Since $q_1 = q_2$, $q$ is not in $A$, and therefore not in $\frakB$.
+        
+      \end{enumarabic}
+      Therefore, $\frakB$ is open.
+
+    \end{proof}
+  \end{claim}
+
+  \newpage
+  \begin{claim}
+    $\frakB$ is contained in $S$.
+
+    \begin{proof}
+      Above, we picked $q$ such that $q_1 = p_1 - \frac{r}{\sqrt{2}}$ and $q_2 = p_2 + \frac{r}{\sqrt{2}}$
+      such that $q_1 = q_2$. This point $q$ lies on the line $x = y$,
+      and is the only such point on the circle of radius $r$, centered at $p$, that lies on the line $x = y$.
+      If a point in $\frakB$ lies outside $S$, it must be on or above the line $x = y$.
+      But that is impossible, as that would imply that the line $x = y$ intersects the circle
+      more than once.
+
+      \crim{
+        This proof sounds very sketchy. I could visualize it,
+        but I wasn't sure how to articulate it better.
+      }
+    \end{proof}
+  \end{claim}
 \end{answer}

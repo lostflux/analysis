@@ -3,5 +3,77 @@
   Show, using the definition of a limit, that $\lim\limits_{n \to \infty}{a_n} = 1$.
 \end{problem}
 \begin{answer}
+  \begin{definition}
+    Let $\braces{a_n}_{n=1}^\infty$ be a sequence in a metric space $(X, d)$.\\
+    We say that $\lim\limits_{n \to \infty} a_n = a$ if for every $\epsilon > 0$
+    there exists $N \in \N$ such that $d(a_n, a) < \epsilon$ for all $n \geq N$.
+  \end{definition}
+
+  \begin{remark}
+    For any $n \in \N$;
+    \begin{enumarabic}
+      \item $N + 1 > 0$
+      \item $0 < N < N + 1 \implies \frac{1}{N} > \frac{1}{N + 1} > 0$.~\label{remark:5.1}
+    \end{enumarabic}
+  \end{remark}
+
+  \step
+  We shall show that $\lim\limits_{n \to \infty}{\frac{n}{n + 1}} = 1$
+  in three steps, outlined in the following claims.
+
+  \begin{claim}~\label{claim:5.1}
+    The sequence is bounded above by $1$.
+
+    \begin{proof}
+      Let $n \in \N$ be arbitrary.
+      \begin{alignat*}{3}
+        a_n &= \frac{n}{n + 1} \\
+            &= \frac{n + 1 - 1}{n + 1} \\
+            &= 1 - \frac{1}{n + 1} &&< 1 - 0 = 1 \qquad \text{ since $\frac{1}{n+1} > \frac{1}{n} > 0$ (by~\ref{remark:5.1})}
+      \end{alignat*}
+    \end{proof}
+  \end{claim}
+
   
+  \begin{claim}~\label{claim:5.2}
+    The sequence is monotonically increasing,
+    i.e. $a_n < a_{n+1}$ for all $n \in \N$.
+    \begin{proof}
+      \begin{alignat*}{3}
+        a_n &= \frac{n}{n + 1} \\
+        a_n &= \frac{n + 1 - 1}{n + 1} \\
+        a_n &= 1 - \frac{1}{n + 1} &&< 1 - \frac{1}{n + 2} \qquad \text{ since $\frac{1}{n+1} > \frac{1}{n+2} > 0$ (by~\ref{remark:5.1})} \\
+        a_n & &&< \frac{(n + 2) - 1}{n + 2} \\
+        a_n & &&< \frac{n + 1}{n + 2} \\
+        a_n & &&< a_{n+1}
+      \end{alignat*}
+    \end{proof}
+  \end{claim}
+  \newpage
+  \begin{claim}~\label{claim:5.3}
+    For every $\epsilon > 0$, there exists $N \in \N$ such that $d(a_n, 1) < \epsilon$
+    for all $n \geq N$.
+    \begin{proof}
+      Pick $N$ to be the smallest integer greater than $\frac{1}{\epsilon}$,
+      so that $\frac{1}{N} < \epsilon$.
+
+      By definition of the series, $a_N = \frac{N}{N + 1}$.
+      We'll show that $d(a_N, 1) < \epsilon$.
+
+      \begin{alignat*}{4}
+        a_N &= \frac{N}{N + 1} \\
+            &= \frac{N + 1 - 1}{N + 1} \\
+            &= 1 - \frac{1}{N + 1}   &&> 1 - \frac{1}{N} &&> 1 - \epsilon &&\qquad \text{ since $\displaystyle \frac{1}{N+1} < \frac{1}{N}$ (by~\ref{remark:5.1}) and $\frac{1}{N} < \epsilon$.}
+      \end{alignat*}
+      Therefore, $d(a_N, 1) = \abs{a_N - 1} < \abs{1 - \epsilon - 1} = \epsilon$.
+    \end{proof}
+  \end{claim}
+
+  \step
+  Tying together claims~\ref{claim:5.1},~\ref{claim:5.2}, and~\ref{claim:5.3},
+  we have shown that the sequence is monotonically increasing, is bounded above by $1$,
+  and for each $\epsilon > 0$ there exists $N \in \N$ such that $d(a_N, 1) < \epsilon$.
+  But these three properties mean that for all $n \geq N$, $d(a_n, 1) < \epsilon$
+  (since the sequence will never decrease below $a_N$ and never increase above $1$). \\
+  Therefore, $\lim\limits_{n \to \infty}{a_n} = 1$.
 \end{answer}

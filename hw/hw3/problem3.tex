@@ -4,5 +4,33 @@
 \end{problem}
 
 \begin{answer}
-  Let $\braces{p_i}_1^\infty$ be a convergent sequence in a metric space $(X, d)$.
+  Let $\vector{p} = \braces{p_i}_1^\infty$ be a convergent sequence in a metric space $(X, d)$
+  such that $\lim\limits_{i \to \infty}p_i = p$.\\
+  Let $\vector{q} = \braces{q_i}_1^\infty$ be a \emph{re-ordering} of $\vector{p}$ such that for all $i \in \N$,
+  $q_i = p_{f(i)}$ for some bijection $f : \N \to \N$.
+  We will show that $\lim\limits_{i \to \infty}q_i = p$.
+
+  \begin{claim}
+    $\lim\limits_{i \to \infty}q_i = p$.
+    \begin{proof}
+      Let $\epsilon > 0$ be arbitrary.
+      Since $\vector{p}$ converges to $p$, there exists some $N \in \N$ such that
+      $d(p_i, p) < \epsilon$ for all $i \geq N$.
+      This means that for any such $\epsilon$, there are only finitely many $p_i$ such that
+      $d(p_i, p) \geq \epsilon$, i.e. the set
+      \[ \set{i \in \N \mid d(p_i, p) \geq \epsilon} \]
+      is finite.
+
+      \step
+      Since $q_i = p_k$ for some $k \in \N$ for all $i \in \N$
+      and the reordering is a bijection,
+      the set \[ \set{i \in \N \mid d(q_i, p) \geq \epsilon} \] is also finite.
+
+      \step
+      For any $\epsilon$, pick
+      \[ M \colonequals \sup \set{i \in \N \mid d(q_i, p) \geq \epsilon}. \]
+      Then we have $d(q_i, p) < \epsilon$ for all $i \geq M+1$,
+      meaning $\lim\limits_{i \to \infty}q_i = p$.
+    \end{proof}
+  \end{claim}
 \end{answer}

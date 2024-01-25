@@ -1,12 +1,50 @@
 \begin{problem}
-  Consider the sequence $\braces{a_n}_{n=1}^\infty$
+  Consider the sequence $A \colonequals \braces{a_n}_{n=1}^\infty$
   such that $a_1 \geq a_2 \geq a_3 \geq \dots$
   (i.e., it is a monotonically decreasing sequence).
   Assume that there exists $m > 0$ such that
   $a_n > m$ for all $n$.
-  Show that $\braces{a_n}_{n=1}^\infty$ converges in $\R$.
+  Show that $A$ converges in $\R$.
 \end{problem}
 
 \begin{answer}
+  \begin{definition}
+    A sequence $\braces{p_n}_{n=1}^\infty$ converges to a point $p$ if
+    for every $\epsilon > 0$ there exists $N \in \N$ such that
+    $d(p_n, a) < \epsilon$ for all $n \geq N$.
+  \end{definition}
+  \begin{remark}
+    Since $a_n > m$ for all $n$, and $A$ is monotonically decreasing,
+    \begin{enumarabic}
+      \item $a_n - m > 0$ for all $n$.~\label{remark:6.1}
+      \item $a_n - a_{n+1} \geq 0$ for all $n$.~\label{remark:6.2}
+      \item (~\ref{remark:6.1}) and (~\ref{remark:6.2}) imply that
+        $d(a_n, m) \geq d(a_{n+1}, m)$ for all $n$.
+    \end{enumarabic}
+  \end{remark}
+  Let $S$ be the set of all points in $a_n \in A$ for each $n \in \N$.
+  Then $S$ has the following properties:
+  \begin{enumroman}
+    \item $S$ is nonempty since $a_1 \in S$.
+    \item $S$ is bounded below by $m$.
+  \end{enumroman}
+  For our purposes, let $M \colonequals \inf S$.
   
+  \begin{claim}
+    $A$ converges to $M$.
+
+    \begin{proof}
+      Since $M = \inf S$, for all $a_n \in S$,
+      we have $a_n \geq M$.
+
+      For any $\epsilon > 0$, note that $M + \epsilon$ is not a lower bound for $S$
+      (since we picked $M$ to be the biggest such lower bound).
+      This implies that there exists some $a_N \in S$ such that $a_N < M + \epsilon$
+      (or equivalently, $d(a_N, M) < \epsilon$).
+      But, since $A$ is monotonically decreasing, this implies that
+      $a_n < M + \epsilon$ for all $n > M$, meaning $d(a_n, M) < \epsilon$, for all $n > N$. \\
+      By definition of convergence, this means that the sequence
+      $A = \braces{a_i}_1^\infty$ converges to $M$.
+    \end{proof}
+  \end{claim}
 \end{answer}

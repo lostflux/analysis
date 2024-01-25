@@ -1,10 +1,84 @@
 \begin{problem}
   Let $a_i, b_i \in \R$ for $i = 1, 2, \dots, n$.
-  Show that $(a_1, b_1) \times (a_2, b_2) \times \dots \times (a_n, b_n)$
-  is open in $(\R^n, d_E)$ and
-  $[a_1, b_1] \times [a_2, b_2] \times \dots \times [a_n, b_n]$
-  is closed in $(\R^n, d_E)$.
-\end{problem}
-\begin{answer}
 
-\end{answer}
+  \begin{enumroman}
+    \item
+      Show that $X_1 \colonequals (a_1, b_1) \times (a_2, b_2) \times \dots \times (a_n, b_n)$
+      is open in $(\R^n, d_E)$.
+      \begin{answer}
+
+        \begin{definition}
+          A set $S$ is open if all points have an open neighborhood (ball) contained in $S$.
+        \end{definition}
+
+        \begin{definition}
+          The Euclidean metric $d_E$ is defined as
+          \[
+            d_E(x, y) \colonequals \sqrt{\sum_{i=1}^n{(x_i - y_i)^2}}.
+          \]
+
+          \begin{remark}
+            Note that for any $r \in \R$, $r^2 = \abs{r}^2$.
+            This means that: \[ d_E(x, y) = \sqrt{\sum_{i=1}^n{(x_i - y_i)^2}} = \sqrt{\sum_{i=1}^n{\abs{x_i - y_i}^2}}. \]
+            Since $\abs{x_i - y_i} \geq 0$ for all $i = 1, 2, \dots, n$,
+            this means:
+            \begin{align}
+              \sqrt{\abs{x_k - y_k}^2} \leq \sqrt{\sum_{i=1}^n{\abs{x_i - y_i}^2}} \text{ for all } i = 1, 2, \dots, n, \text{ and } k \in [1, n].~\nonumber \\
+              \abs{x_k - y_k} \leq \sqrt{\sum_{i=1}^n{\abs{x_i - y_i}^2}} \text{ for all } i = 1, 2, \dots, n, \text{ and } k \in [1, n].~\label{eq:1.1}
+            \end{align}
+          \end{remark}
+        \end{definition}
+          \step
+          Let $x = \vector{x_1, x_2, \dots, x_n} \in X_1$ be arbitrary. \\
+          To show that $X_1$ is open, we shall show that any such $x$ has an open neighborhood contained in $X_1$.
+
+          \step
+          Pick $\epsilon = \min \set{\abs{x_1 - b_1}, \abs{x_1 - a_1}, \abs{x_2 - b_2}, \abs{x_2 - a_2}, \dots, \abs{x_n - b_n}, \abs{x_n - a_n}}$
+          such that
+          \begin{equation}
+            \epsilon \leq \abs{x_i - b_i} \text{ and } \epsilon \leq \abs{x_i - a_i} \text{ for all } i = 1, 2, \dots, n.
+            ~\label{eq:1.2}
+          \end{equation}
+          Let $B_\epsilon(x)$ be the open ball of radius $\epsilon$ centered at $x$.
+          \begin{claim}
+            $B_\epsilon(x) \subseteq X_1$.
+            \begin{proof}
+              Let $y \in B_\epsilon(x)$ be arbitrary.
+              Since $B_\epsilon(x)$ is open, $d_E(x, y) < \epsilon$. \\
+              This means $\abs{x_i - y_i} < \epsilon$ for all $i = 1, 2, \dots, n$ (by~\ref{eq:1.1}). \\
+              Thus, $\abs{x_i - y_i} < \abs{x_i - b_i}$ and $\abs{x_i - y_i} < \abs{x_i - a_i}$ for all $i = 1, 2, \dots, n$ (by~\ref{eq:1.2}). \\
+              Thus, $y_i \in (a_i, b_i)$ for all $i = 1, 2, \dots, n$ (by \ref{eq:1.2}). \\
+              Thus, $y \in X_1$.
+            \end{proof}
+          \end{claim}
+      \end{answer}
+    \item
+      Show that $X_2 \colonequals [a_1, b_1] \times [a_2, b_2] \times \dots \times [a_n, b_n]$
+      is closed in $(\R^n, d_E)$.
+      \begin{answer}
+        \begin{definition}
+          A set $S$ is closed if it contains all its limit points.
+        \end{definition}
+
+        To show that $X_2$ is closed, we shall show that any convergent sequence in $X_2$ converges to a point in $X_2$.
+
+        \step
+        Let $\braces{p_i}_{i=1}^\infty \subseteq X_2$ be a convergent sequence in $X_2$,
+        such that each $p_i = \vector{p_{i, 1}, p_{i, 2}, \dots, p_{i, n}} \in X_2$. \\
+        Furthermore, suppose that $\lim\limits_{i \to \infty}{p_i} = p$
+        for some $p = \vector{p_1, p_2, \ldots, \_n} \in \R^n$.
+
+        \begin{claim}
+          $p \in X_2$.
+          \begin{proof}
+            Let $i \in \N$ be arbitrary.
+            Since $p_i \in X_2$, $p_{i, k} \in [a_k, b_k]$ for all $k = 1, 2, \dots, n$. \\
+            Note that $[a_k, b_k]$ is closed for all $k = 1, 2, \dots, n$ (since $[a_k, b_k]$ contains its boundary points). \\
+            Since $p_i \to p$, $p_{i, k} \to p_k$ for all $k = 1, 2, \dots, n$. \\
+            Thus, $p_k \in [a_k, b_k]$ for all $k = 1, 2, \dots, n$. \\
+            Thus, $p \in X_2$.
+          \end{proof}
+        \end{claim}
+      \end{answer}
+  \end{enumroman}
+\end{problem}

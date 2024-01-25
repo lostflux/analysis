@@ -1,7 +1,47 @@
 \begin{problem}
-  Prove that if $\lim\limits_{n \to \infty}{p_n} = p$ in a given metrix space
-  then the set of points $\set{p, p_1, p_2, \dots}$ is closed.
+  Prove that if $\lim\limits_{n \to \infty}{p_n} = p$ in a given metric space $(X, d)$,
+  then the set of points $S = \set{p, p_1, p_2, \dots}$ is closed.
 \end{problem}
 \begin{answer}
+  \begin{definition}
+    A set $S$ is closed if every convergent sequence in $S$ converges to a point in $S$.
+  \end{definition}
   
+  \step
+  Let $\braces{p_i}_1^\infty$ be a convergent sequence in a metric space $(X, d)$
+  and $\lim\limits_{i \to \infty}{p_i} = p \in X$ as outlined in the problem,
+  and let $S = \set{p, p_1, p_2, \dots}$.
+
+  \step
+  To show that $S$ is closed, we shall show that any convergent sequence
+  in $S$ converges to a point in $S$.
+  In fact, we'll make the stronger claim that any such sequence converges to $p$.
+
+  \begin{claim}
+    If $Q = \braces{q_i}_1^\infty$ is a convergent sequence in $S$,
+    then $\lim\limits_{i \to \infty}{q_i} = p$.
+    \begin{proof}
+      Since $Q$ converges,
+      there exists some point $q$ (in $X$, but not necessarily in $S$)
+      such that $\lim\limits_{i \to \infty}{q_i} = q$.
+      
+      \step
+      Since $\braces{q_i}_1^\infty \subseteq S$, $q_i \in S$ for all $i \in \N$.
+      This means that for all $i \in \N$, either $q_i = p$ or $q_i = p_k$ for some $k \in \N$.
+
+      \step
+      However, since the sequence $P = \braces{p_i}_1^\infty$ converges to $p$,
+      for every $\epsilon > 0$, there are only finitely many $p_i$ such that
+      $d(p_i, p) \geq \epsilon$, hence there are only finitely many $q_i$
+      such that $d(q_i, p) \geq \epsilon$
+      (since each $q_i$ is either equivalent to $p$ or equivalent to $ = p_k$ for some $k \in \N$)
+      Thus, for any $\epsilon$, pick $M$ to be the largest such $i$
+      in the set of all $i$ such that $d(q_i, p) \geq \epsilon$.
+      Then we have $d(q_i, p) < \epsilon$ for all $i \geq M+1$,
+      meaning $\lim\limits_{i \to \infty}{q_i} = p$.
+
+      \step
+      Since $p \in S$, $S$ is closed.
+    \end{proof}
+  \end{claim}
 \end{answer}

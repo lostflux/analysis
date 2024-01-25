@@ -4,5 +4,101 @@
 \end{problem}
 
 \begin{answer}
+  Let $E \subseteq \R$ be a bounded open subset of $\R$.
+  Since $E$ is bounded \emph{and} open, there exists some $a, b \in \R$ such that
+  $a < x < b$ for all $x \in E$.
+  Thus, $E \subseteq (a, b)$.\\
+  For each element $x \in E$, let $I_x = (a_x, b_x)$ be the largest
+  \emph{continuous} open interval around $x$ that is contained entirely in $E$.
 
+  \begin{claim}~\label{claim:2.2}
+    For any two such intervals $I_x$ and $I_y$,
+    either $I_x = I_y$ or $I_x \cap I_y = \emptyset$.
+
+    \begin{proof}
+      Since we pick $I_x$ and $I_y$ to be the largest open intervals
+      around $x$ and $y$ respectively that are contained in $E$,
+      if $I_x \cap I_y \neq \emptyset$, then there exists some element
+      $z$ in both $I_x$ and $I_y$. If $I_z$ is the maximal interval
+      around $z$, then every element in
+      $I_x$ is in $I_z$ and every element in $I_y$ is in $I_z$.
+      Likewise, every element in $I_z$ is in both $I_x$ and $I_y$
+      (since $x$ is in both $I_x$ and $I_y$).
+      Therefore, $I_x = I_y = I_z$.
+    \end{proof}
+  \end{claim}
+
+  \begin{claim}~\label{claim:2.3}
+    $E = \bigcup\limits_{x \in E} I_x$.
+
+    \begin{proof}
+      We shall show that the two sets are equal using double containment.
+      \begin{enumarabic}
+        \item $E \supseteq \bigcup_{x \in E} I_x$:\\
+          Let $a \in \bigcup_{x \in E} I_x$ be arbitrary,
+          with $I_a$ as the largest open interval around $a$ that is contained in $E$,
+          By definition of $I_a$, every point in $I_a$ is contained in $E$,
+          so $a \in E$.
+        \item $E \subseteq \bigcup\limits_{x \in E} I_x$:\\
+          Let $a \in E$ be arbitrary, with $I_a$ being the
+          largest open interval around $x$ that is contained in $E$.
+          By definition of $I_a$, $a \in I_a$, so $a \in \bigcup\limits_{x \in E} I_x$.
+      \end{enumarabic}
+    \end{proof}
+    
+  \end{claim}
+
+  \begin{claim}
+    Any bounded open subset of $\R$ is the union of disjoint open intervals.
+
+    \begin{proof}
+      By connecting claims~\ref{claim:2.2} and~\ref{claim:2.3},
+      we have that $E = \bigcup\limits_{x \in E} I_x$,
+      where each $I_x$ is a disjoint open interval.
+    \end{proof}
+  \end{claim}
+\end{answer}
+
+\crim{
+  I attempted an alternative proof on the next page.
+  I would love some feedback on whether it is correct or not,
+  but if you only have to grade one then please grade the first one.
+}
+
+\newpage
+I wasn't sure if the previous technique is correct,
+so I attempted an alternative construction.
+
+\begin{answer}
+  \begin{claim}
+    Any bounded open subset of $\R$ is the union of disjoint open intervals.
+
+    \begin{proof}
+      Let $E \subseteq \R$ be a bounded open subset of $\R$.
+      Since $E$ is bounded \emph{and} open, there exists some $a, b \in \R$ such that
+      $a < x < b$ for all $x \in E$.
+      Thus, $E \subseteq (a, b)$.
+    
+      \begin{enumroman}
+        \item If $E = \emptyset$, then it is the union of disjoint open intervals
+          since the empty set is trivially open.
+        \item If $E = (a, b)$, then it is the union of the disjoint open intervals
+          since $(a, b)$ is open.
+        \item If $E \neq (a, b)$, then there exists some $c \in (a, b)$ such that
+          $c \not \in E$. Write $E = E_1 \cup E_2$ with $E_1 \subseteq (a, c)$
+          and $E_2 \subseteq (c, b)$.
+          $E_1$ and $E_2$ are disjoint since $a < c < b$, and $c \not \in E_1$,
+          $c \not \in E_2$.
+          \begin{itemize}
+            \item If $E_1 = (a, c)$ and $E_2 = (c, b)$, then we are done
+              since $(a, c)$ and $(c, b)$ are both open.
+            \item If $E_1 \neq (a, c)$ or $E_2 \neq (c, b)$,
+              repeat the process of splitting $E_1$ and/or $E_2$ into smaller open intervals
+              until equality.
+          \end{itemize}
+          We can then write $E = E_i \cup E_j \cup \dots$ for some
+          open intervals $E_i, E_j, \dots$ contained in $(a, b)$.
+      \end{enumroman}
+    \end{proof}
+  \end{claim}
 \end{answer}

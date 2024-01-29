@@ -1,0 +1,26 @@
+\begin{problem}
+  Show that a complete subspace of a metric space is a closed subset.
+\end{problem}
+\begin{answer}
+  \begin{definition}
+    A metric space $X$ is complete if every Cauchy sequence in $X$ converges.
+  \end{definition}
+
+  \begin{definition}
+    A subset $S$ of a metric space $X$ is closed if it contains all its limit points.
+  \end{definition}
+
+  \begin{claim}
+    A complete subspace of a metric space is a closed subset.
+    \begin{proof}
+      Let $X$ be a metric space and $Y \subseteq X$ be a complete subspace of $X$.
+      Let $S \subseteq Y$ be a Cauchy sequence in $Y$.
+      Since $Y$ is a subspace of $X$, $S$ is also a Cauchy sequence in $X$.
+      Since $X$ is complete, $S$ converges in $X$.
+      Since $S$ is a Cauchy sequence in $Y$, $S$ converges in $Y$.
+      Thus, $Y$ contains all its limit points.
+      Thus, $Y$ is closed.
+    \end{proof}
+  \end{claim}
+\end{answer}
+

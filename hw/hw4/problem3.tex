@@ -3,23 +3,47 @@
 \end{problem}
 \begin{answer}
   \begin{definition}
-    A metric space $X$ is complete if every Cauchy sequence in $X$ converges.
+    A metric space $X$ is complete if every Cauchy sequence in $X$
+    has a limit point in $X$.
   \end{definition}
 
   \begin{definition}
-    A subset $S$ of a metric space $X$ is closed if it contains all its limit points.
+    A subset $S$ of a metric space $X$ is closed if $S$ contains all its limit points.
   \end{definition}
 
-  \begin{claim}
+  \begin{claim}~\label{claim:3.1}
+    Every convergent sequence is Cauchy.
+
+    \begin{proof}
+      Let $X$ be a metric space and $P \colonequals \braces{p_n}_1^\infty \subseteq X$ be a convergent sequence in $X$.
+      Let $p \in X$ be the limit of $P$. \\
+      For any $\epsilon > 0$, since $P$ converges to $p$,
+      there exists $N \in \N$ such that
+      $d(p_n, p) < \frac{\epsilon}{2}$ for all $n \geq N$.
+      Therefore,
+      \begin{align*}
+        d(p_n, p_m) \leq d(p_n, p) + d(p, p_m) < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon
+      \end{align*}
+      Therefore, $P$ is Cauchy.
+    \end{proof}
+  \end{claim}
+
+  \begin{claim}~\label{claim:3.2}
     A complete subspace of a metric space is a closed subset.
     \begin{proof}
-      Let $X$ be a metric space and $Y \subseteq X$ be a complete subspace of $X$.
-      Let $S \subseteq Y$ be a Cauchy sequence in $Y$.
-      Since $Y$ is a subspace of $X$, $S$ is also a Cauchy sequence in $X$.
-      Since $X$ is complete, $S$ converges in $X$.
-      Since $S$ is a Cauchy sequence in $Y$, $S$ converges in $Y$.
-      Thus, $Y$ contains all its limit points.
-      Thus, $Y$ is closed.
+      Let $X$ be a metric space and $Y \subseteq X$ be a complete subspace of $X$.\\
+      Let $P \colonequals \braces{p_n}_1^\infty \subseteq Y$ be an arbitrary
+      convergent sequence in $Y$ (i.e. a sequence that has a limit).
+      To show that $Y$ is closed, we need to show that any such $P$ has a limit point in $Y$.
+
+      \step
+      By claim~\ref{claim:3.1}, the convergence of $P$ implies that $P$ is Cauchy.
+      Since $Y$ is complete by definition, and $P$ is Cauchy,
+      $P$ has a limit point $p \in Y$.
+      
+      \step
+      Since $P$ was arbitrary, $Y$ contains all its limit points,
+      whenever limit points exist, so $Y$ is closed.
     \end{proof}
   \end{claim}
 \end{answer}

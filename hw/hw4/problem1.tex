@@ -14,5 +14,46 @@
   with the equality holding if and only if the sequence converges.
 \end{problem}
 \begin{answer}
+  Let $a_1, a_2, a_3, \ldots$ be a bounded sequence of real numbers as defined above.
+  Let \[
+    L \colonequals \liminf\limits_{n \to \infty}{a_n},
+    \qquad
+    U \colonequals \limsup\limits_{n \to \infty}{a_n}.
+  \] For convenience, define
+  \begin{align*}
+    S_U &\colonequals \set{x \in \R \given a_n > x \text{ for infinitely many } n \in \N}
+    \\
+    S_L &\colonequals \set{x \in \R \given a_n < x \text{ for infinitely many } n \in \N}
+  \end{align*} such that $L = \inf S_L$ and $U = \sup S_U$.
+
+  \step
+  We shall first prove that
+  $\liminf\limits_{n \to \infty}{a_n} \leq \limsup\limits_{n \to \infty}{a_n}$,
+  then show that the equality holds if and only if the sequence converges.
+
+  % \newpage
+  \begin{claim}
+    $u < l$ for all $l \in S_L$ and $u \in S_U$.
+    \begin{proof}
+      Let $l \in S_L$ and $u \in S_U$.
+      By definition of $S_L$ and $S_U$,
+      $u < a_n < l$ for infinitely many $n \in \N$.
+      Therefore, $u < l$.
+    \end{proof}
+  \end{claim}
+
+  \begin{claim}
+    $L \leq U$.
+    \begin{proof}
+      $L$ is a lower bound of $S_L$ and $U$ is an upper bound of $S_U$.
+      This means that $L \leq l$ for all $l \in S_L$ and $u \leq U$ for all $u \in S_U$.
+      By the previous claim, $u < l$,
+      Suppose $U < L$.
+      Since $L$ was a lower bound on $S_L$, this would imply that
+      $U$ is also a lower bound on $S_L$, hence $U \leq l$ for all $l \in S_L$.
+
+    \end{proof}
+  \end{claim}
+
   
 \end{answer}

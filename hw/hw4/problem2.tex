@@ -2,28 +2,66 @@
   Let $\displaystyle x_n = \parens{1 + \frac{1}{n}}^n$
   for all $n \in \N$.
 
-  \begin{remark}
+  \begin{remark}~\label{remark:euler}
     The Euler number $e$ can be defined as
     $\displaystyle \lim_{n \to \infty}{\parens{1 + \frac{1}{n}}^n}$.
   \end{remark}
 
   \begin{enumroman}
-    \item Using induction, show that for all $x > -1$ and $n \in \N$, we have
+    \item~\label{step:2.1} Using induction, show that for all $x > -1$ and $n \in \N$, we have
       \[ \parens{1 + x}^n \geq 1 + nx. \]
 
       \begin{answer}
-        
+        We shall prove the claim by induction on $n$.
+
+        \begin{proof}
+          Let $x > -1$ and $n \in \N$.
+          \begin{enumerate}
+            \item Base case: $n = 1$.
+              \begin{alignat*}{5}
+                &\parens{1 + x}^n &&= \parens{1 + x}^1 &&= 1 + x &&= 1 + 1 \cdot x &&= 1 + nx
+              \end{alignat*}
+              Since $1 + nx \geq 1 + nx$, the inequality holds for $n = 1$.
+            \item Inductive step: Suppose $\parens{1 + x}^n \geq 1 + nx$.
+              \begin{alignat*}{5}
+                &\parens{1 + x}^{n+1} &&= \crim{\parens{1 + x}^n} \parens{1 + x} \\
+                & &&\geq \crim{\parens{1 + nx}} \parens{1 + x} &&= 1 + x + nx + nx^2 \\
+                & && &&\geq 1 + x + nx &&= 1 + (n+1)x
+              \end{alignat*}
+          \end{enumerate}
+          Therefore, $\parens{1 + x}^n \geq 1 + nx$ for all $n \in \N$.
+        \end{proof}
       \end{answer}
 
-    \item Using th eprevious item, show that
+    \newpage
+    \item~\label{step:2.2} Using the previous item, show that
       $\displaystyle  \frac{x_{n+1}}{x_n} \geq 1$ so $x_n$
       is monotonically increasing.
 
       \begin{answer}
-
+        To show this, we need to show that $x_{n+1} \geq x_n$ for all $n \in \N$.
+        \begin{alignat*}{5}
+          &\frac{x_{n+1}}{x_n} &&= \frac{\parens{1 + \frac{1}{n+1}}^{n+1}}{\parens{1 + \frac{1}{n}}^n} \\
+          & &&= \frac{\parens{1 + \frac{1}{n+1}}^{n}}{\parens{1 + \frac{1}{n}}^n} \cdot \parens{1 + \frac{1}{n+1}} \\
+          & &&= \parens{\frac{1 + \frac{1}{n+1}}{1 + {\frac{1}{n}}}}^n \cdot \parens{1 + \frac{1}{n+1}} \\
+          & &&= \parens{\frac{1 + \frac{1}{n+1}}{\frac{n+1}{n}}}^n \cdot \parens{1 + \frac{1}{n+1}} \\
+          & &&= \parens{\frac{n + \frac{n}{n+1}}{n+1}}^n \cdot \parens{1 + \frac{1}{n+1}} \\
+          & &&= \parens{\frac{n}{n+1} + \frac{n}{\parens{n+1}^2}}^n \cdot \parens{1 + \frac{1}{n+1}} \\
+          & &&= \parens{1 - \frac{1}{n+1} + \frac{n}{\parens{n+1}^2}}^n \cdot \parens{1 + \frac{1}{n+1}} \\
+          & &&= \parens{1 - \frac{-\parens{n+1} + n}{\parens{n+1}^2}}^n \cdot \parens{1 + \frac{1}{n+1}} \\
+          & &&= \crim{\parens{1 - \frac{1}{\parens{n+1}^2}}^n} \cdot \parens{1 + \frac{1}{n+1}} \\
+          & &&\qquad \geq \crim{\parens{1 - \frac{n}{\parens{n+1}^2}}} \cdot \parens{1 + \frac{n}{n+1}} \qquad \text{(by the previous proof)} \\
+          & &&\qquad \qquad >\parens{1 - \frac{n+1}{\parens{n+1}^2}} \cdot \parens{1 + \frac{n}{n+1}} \qquad \text{(subtracting a bigger term)} \\
+          & &&\qquad \qquad = \parens{1 - \frac{1}{n+1}} \cdot \parens{1 + \frac{n}{n+1}} \\
+          & &&\qquad \qquad = 1 - \frac{1}{n+1} + \frac{1}{n} - \frac{1}{n\parens{n+1}} \\
+          & &&\qquad \qquad = \frac{n\parens{n+1} - n + \parens{n+1} - 1}{n\parens{n+1}} \\
+          & &&\qquad \qquad = \frac{n\parens{n+1}}{n\parens{n+1}} \\
+          & &&\qquad \qquad = 1
+        \end{alignat*}
       \end{answer}
 
-    \item Show that $x_n$ is bounded using the binomial formula
+    \newpage
+    \item~\label{step:2.3} Show that $x_n$ is bounded using the binomial formula
       \[
         \parens{a + b}^n =
         \frac{n!}{k! (n-k)!} a^{n-k} b^k =
@@ -31,10 +69,57 @@
       \]
   
       \begin{answer}
-
+        Fix $a$ and $b$ to arbitrary real numbers.
+        We shall prove this by induction on $n$.
+        \begin{enumalph}
+          \item Base case: $n = 1$
+            \begin{alignat*}{5}
+              & \parens{a + b}^n &&= a + b \\
+              & &&= \binom{1}{0} a^{1} \cdot b^0 + \binom{1}{1} a^0 b^1 \\
+              & &&= \binom{1}{0} a^{1-0} b^0 + \binom{1}{1} a^{1-1} b^1 &&= \sum_{k=0}^1{\binom{n}{k} a^{n-k} b^k}
+            \end{alignat*}
+          \item Inductive step: Assume the invariant holds
+            for ${(a+b)}^n$.
+            We shall show that it holds for ${(a+b)}^{(n+1)}$.
+            \begin{alignat*}{5}
+              & \parens{a + b}^{n+1} &&= \parens{a + b}^n \parens{a + b} \\
+              & &&= \parens{\sum_{k=0}^n{\binom{n}{k} a^{n-k} b^k}} \parens{a + b} \\
+              & &&= \sum_{k=0}^n{\binom{n}{k} a^{n-k} b^k} \cdot a + \sum_{k=0}^n{\binom{n}{k} a^{n-k} b^k} \cdot b \\
+              & &&= \sum_{k=0}^n{\binom{n}{k} a^{n+1-k} b^k} + \sum_{k=0}^n{\binom{n}{k} a^{n-k} b^{k+1}} \\
+              & &&= \sum_{k=0}^n{\binom{n}{k} a^{n+1-k} b^k + a^{n-k} b^{k+1}} \\
+              & &&= \sum_{k=0}^n{\binom{n}{k} a^{n+1-k} b^k + \binom{n}{k-1} a^{n+1-k} b^k} \qquad \text{(Grouping together equal powers)} \\
+              & &&= \sum_{k=0}^n{\parens{\frac{n!}{k! (n-k)!} + \frac{n!}{(k-1)! (n-k+1)!}}} a^{n+1-k} b^k \\
+              & &&= \sum_{k=0}^n{\parens{\frac{\parens{n+1-k}n! + kn!}{k!\parens{n+1-k}!}}} a^{n+1-k} b^k \\
+              & &&= \sum_{k=0}^n{\parens{\frac{\parens{n+1}n!}{k!\parens{n+1-k}!}}} a^{n+1-k} b^k \\
+              & &&= \sum_{k=0}^n{\parens{\frac{\parens{n+1}!}{k!\parens{n+1-k}!}}} a^{n+1-k} b^k \\
+              & &&= \sum_{k=0}^n{\binom{n+1}{k} a^{n+1-k} b^k} \\
+              & &&= \sum_{k=0}^{n+1}{\binom{n+1}{k} a^{n+1-k} b^k}
+            \end{alignat*}
+        \end{enumalph}
+        Since $a$ and $b$ were arbitrary, this holds for all $a$ and $b$,
+        including $a = 1$ and $b = \frac{1}{n}$, thus
+        $x_n$ is bounded by the binomial formula since equality
+        satisfies both \emph{less than or equal to} and \emph{greater than or equal to}.
       \end{answer}
 
-    \item Show that $\braces{x_n}$ is convergent.
-  \end{enumroman}
+    \item~\label{step:2.4} Show that $\braces{x_n}$ is convergent.
+    \begin{answer}
+      As seen in \ref{step:2.2} and \ref{step:2.3},
+      $\braces{x_n}$ is monotonically increasing and is bounded above.
 
+      \begin{claim}
+        $\braces{x_n}$ is convergent.
+
+        \begin{proof}
+          Suppose $\braces{x_n}$ is not convergent.
+          Since $\braces{x_n}$ is monotonically increasing, this implies that
+          it must not be bounded above and
+          $\displaystyle \lim_{n \to \infty} x_n = \infty$,
+          which contradicts the known fact (by remark \ref{remark:euler}) that
+          $\displaystyle \lim_{n \to \infty} x_n = e \neq \infty$.
+          Therefore, the sequence must be convergent.
+        \end{proof}
+      \end{claim}
+    \end{answer}
+  \end{enumroman}
 \end{problem}

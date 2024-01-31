@@ -1,23 +1,58 @@
 \begin{problem}
   % define compactness
-  % \begin{definition}
-  %   A set $S$ is compact if every open cover of $S$ has a finite subcover.
-  % \end{definition}
+  \begin{definition}
+    A set $S$ is compact if every open cover of $S$ has a finite subcover.
+  \end{definition}
 
-  % % define open cover
-  % \begin{definition}
-  %   An open cover of a set $S$ is a collection of open sets $\set{U_\alpha}_{\alpha \in A}$ such that $S \subseteq \bigcup_{\alpha \in A}{U_\alpha}$.
-  % \end{definition}
+  % define open cover
+  \begin{definition}
+    An open cover of a set $S$ is a collection of open sets $\set{U_a}_{a \in A}$ such that $S \subseteq \bigcup_{a \in A}{U_a}$.
+  \end{definition}
 
   Let $\displaystyle A \colonequals \set{\frac{1}{n} \given n \in \N} \subset \R$.
   \begin{enumroman}
     \item Show that $A$ is not compact directly using the definition.
       \begin{answer}
-        
+        \begin{claim}
+          $A$ has no finite subcover.
+          \begin{proof}
+            For each $n \in \N$, $\displaystyle a_n = \frac{1}{n} \in A$,
+            set \[ r_n = \frac{1}{2} \cdot \min \set{ \frac{1}{n-1} - \frac{1}{n}, \frac{1}{n} - \frac{1}{n+1}} \]
+            such that $r_n \leq \frac{1}{2} d(a_{n-1}, a_n)$ and $r_n \leq \frac{1}{2} d(a_n, a_{n+1})$.
+            Define the open ball
+            \[ B_n \colonequals B_{r_n}(a_n) = \parens{a_n - r_n, a_n + r_n}. \]
+            Then each $B_n$ is a non-empty open set containing \emph{only} the single element $a_n$.
+            Furthermore, any two distinct $B_n$ and $B_m$ are disjoint.
+            Therefore, $\set{B_n}_{n \in \N}$ is an infinite open cover of $A$,
+            (since there are infinitely many $B_n$),
+            and each $a_n$ is contained in exactly one $B_n$,
+            so there is no finite subcover.
+          \end{proof}
+        \end{claim}
       \end{answer}
     \item Show that $A \cup \set{0}$ is compact directly using the definition.
       \begin{answer}
-        
+        \begin{claim}
+          $A \cup \set{0}$ has a finite subcover.
+          \begin{proof}
+            Let $S \colonequals A \cup \set{0}$.
+            First, note that $A$ is bounded below by $0$
+            and bounded above by $1$.
+            Let $\set{U_a}_{a \in A}$ be an open cover of $S$.
+            Since $0 \in S$, there exists $a_0 \in A$ such that $0 \in U_{a_0}$.
+            $U_{a_0}$ is an open set, so there exists some
+            $\epsilon > 0$ such that $B_\epsilon(0) \subseteq U_{a_0}$.
+            However, we know that for all $\epsilon > 0$,
+            there exists some $N \in \N$ such that $\frac{1}{N} < \epsilon$,
+            and by the order properties of $\R$,
+            $0 < \frac{1}{N} < \epsilon \implies 0 < \frac{1}{n} \geq \frac{1}{N} < \epsilon$
+            for all $n \geq N$. \\
+            Therefore, $B_\epsilon(0)$ contains infinitely many points,
+            and only the points $\frac{1}{k}$ for $k < N$ are not contained in $B_\epsilon(0)$. \\
+            Therefore, $\set{B_\epsilon(0)} \cup \set{U_k \given k < N}$
+            is a finite subcover of $S$.
+          \end{proof}
+        \end{claim}
       \end{answer}
   \end{enumroman}
 \end{problem}

@@ -9,5 +9,47 @@
   }
 \end{problem}
 \begin{answer}
-  
+  Let $P \colonequals \braces{p_n}_1^\infty \subseteq \R$ be a bounded sequence of real numbers.
+  Then $P$ is contained in some interval $[a, b]$.
+  For an interval $S$, let $\calL(S)$ denote the length of the interval.
+  We shall construct a sequence of nested intervals as follows:
+  \begin{enumarabic}
+    \item Let $I_0 \colonequals [a, b]$. Note that $\calL(I_0) = \abs{a - b}$.
+    \item Let $I_1$ be whichever of
+      $\displaystyle \brackets{a, \frac{a+b}{2}}$
+      and $\displaystyle \brackets{\frac{a+b}{2}, b}$
+      contains infinitely many elements of $P$
+      at least one of them must contain infinitely many elements of $P$,
+      since their union is $I_0$, which contains infinitely many elements of $P$.
+      If both contain infinitely many elements of $P$, pick either one.
+      Note that $\displaystyle \calL(I_1) = \frac{\abs{a - b}}{2}$ and $I_1 \subseteq I_0$.
+    \item Construct $I_2$ to be whichever half of $I_1$
+      contains infinitely many elements of $P$
+      such that $\displaystyle \calL(I_2) = \frac{\abs{a - b}}{2^2}$ and $I_2 \subseteq I_1$.
+    \item For each $n \in \N$, recursively construct $I_n$ to be whichever half of $I_{n-1}$
+      contains infinitely many elements of $P$
+      so that $\displaystyle \calL(I_n) = \frac{\abs{a - b}}{2^n}$
+      and $I_n \subseteq I_{n-1} \subseteq \ldots \subseteq I_0$.
+  \end{enumarabic}
+  Next, for each $n \in \N$, pick any element $q_n$ from the sequence $P$
+  such that $q_n \in I_n$.
+
+  \begin{claim}
+    $\braces{q_n}$ is Cauchy.
+    \begin{proof}
+      For any $\epsilon > 0$.
+      Since $\displaystyle \lim_{n \to \infty}{\calL(I_n)} = 0$,
+      there exists $N \in \N$ such that $\displaystyle \calL(I_N) < \epsilon$.
+      Note that for any $n, m > N$, $q_m \in I_N$ and $q_n \in I_N$. Therefore,
+      \[ 
+        d(q_m, q_n) \leq \calL(I_N) < \epsilon
+      \]
+    \end{proof}
+  \end{claim}
+
+  \step
+  Thus, $\braces{q_n}_1^\infty$ is Cauchy,
+  and $\braces{q_n}_1^\infty \subseteq \brackets{a, b}$,
+  so $\braces{q_n}_1^\infty$ is bounded.
+  By the completeness of $\R$, $\braces{q_n}_1^\infty$ converges.
 \end{answer}

@@ -13,47 +13,50 @@
   Prove that $\liminf\limits_{n \to \infty}{a_n} \leq \limsup\limits_{n \to \infty}{a_n}$
   with the equality holding if and only if the sequence converges.
 \end{problem}
+
 \begin{answer}
-  Let $a_1, a_2, a_3, \ldots$ be a bounded sequence of real numbers as defined above.
-  Let \[
-    L \colonequals \liminf\limits_{n \to \infty}{a_n},
-    \qquad
-    U \colonequals \limsup\limits_{n \to \infty}{a_n}.
-  \] For convenience, define
-  \begin{align*}
-    S_U &\colonequals \set{x \in \R \given a_n > x \text{ for infinitely many } n \in \N}
-    \\
-    S_L &\colonequals \set{x \in \R \given a_n < x \text{ for infinitely many } n \in \N}
-  \end{align*} such that $L = \inf S_L$ and $U = \sup S_U$.
+  Let $A = a_1, a_2, a_3, \ldots$ be a bounded sequence of real numbers as defined above.
 
-  \step
-  We shall first prove that
-  $\liminf\limits_{n \to \infty}{a_n} \leq \limsup\limits_{n \to \infty}{a_n}$,
-  then show that the equality holds if and only if the sequence converges.
-
-  % \newpage
   \begin{claim}
-    $u < l$ for all $l \in S_L$ and $u \in S_U$.
+    $\liminf\limits_{n \to \infty}{a_n} \leq \limsup\limits_{n \to \infty}{a_n}$
     \begin{proof}
-      Let $l \in S_L$ and $u \in S_U$.
-      By definition of $S_L$ and $S_U$,
-      $u < a_n < l$ for infinitely many $n \in \N$.
-      Therefore, $u < l$.
+      Let $L = \liminf\limits_{n \to \infty}{a_n}$ and $U = \limsup\limits_{n \to \infty}{a_n}$.
+      By the definitions of $\liminf$ and $\limsup$, for any $\epsilon > 0$, there exist indices $n_1, n_2 \in \N$ such that
+      \begin{align*}
+        a_n &> L - \epsilon \quad \text{for infinitely many } n > n_1 \\
+        a_n &< U + \epsilon \quad \text{for infinitely many } n > n_2
+      \end{align*}
+      Since $a_n > L - \epsilon$ for infinitely many $n$, and $a_n < U + \epsilon$ for infinitely many $n$,
+      it implies that $L - \epsilon < U + \epsilon$.
+      Since this holds for any $\epsilon > 0$, we conclude that $L \leq U$.
     \end{proof}
   \end{claim}
 
+  \newpage
   \begin{claim}
-    $L \leq U$.
-    \begin{proof}
-      $L$ is a lower bound of $S_L$ and $U$ is an upper bound of $S_U$.
-      This means that $L \leq l$ for all $l \in S_L$ and $u \leq U$ for all $u \in S_U$.
-      By the previous claim, $u < l$,
-      Suppose $U < L$.
-      Since $L$ was a lower bound on $S_L$, this would imply that
-      $U$ is also a lower bound on $S_L$, hence $U \leq l$ for all $l \in S_L$.
+    If the sequence converges, then $\liminf\limits_{n \to \infty}{a_n} = \limsup\limits_{n \to \infty}{a_n}$.
 
+    \begin{proof}
+      Suppose the sequence $A = a_1, a_2, a_3, \ldots$ converges to some point $a$. \\
+      Then, for any $\epsilon > 0$, there exists $N \in \N$ such that
+      $d(a_n, a) < \epsilon$ for all $n \geq N$,
+      so that $a - \epsilon < a_n < a + \epsilon$.
+      Therefore, $a - \epsilon$ is a lower bound of a set containing
+      infinitely many points of the sequence,
+      and $a + \epsilon$ is an upper bound of a set containing
+      infinitely many points of the sequence.
+      By definition of $\liminf$ and $\limsup$,
+      $\liminf\limits_{n \to \infty}{a_n} \geq a - \epsilon$
+      since it has to be less than or equal to any lower bound of infinitely
+      many points of the sequence. \\
+      Similarly, $\limsup\limits_{n \to \infty}{a_n} \leq a + \epsilon$.\\
+      Therefore,
+      \[ a - \epsilon \leq \liminf\limits_{n \to \infty}{a_n} \leq \limsup\limits_{n \to \infty}{a_n} \leq a + \epsilon \]
+      for any $\epsilon > 0$.
+      By making $\epsilon$ arbitrarily
+      small---which we can, since $A$ converges---we conclude that \\
+      $\liminf\limits_{n \to \infty}{a_n} = \limsup\limits_{n \to \infty}{a_n} = a$.
     \end{proof}
   \end{claim}
-
   
 \end{answer}

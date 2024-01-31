@@ -19,10 +19,12 @@
           \begin{enumerate}
             \item Base case: $n = 1$.
               \begin{alignat*}{5}
-                &\parens{1 + x}^n &&= \parens{1 + x}^1 &&= 1 + x &&= 1 + 1 \cdot x &&= 1 + nx
+                &\brackets{\parens{1 + x}^n}_{n=1} &&= \parens{1 + x}^1 &&= 1 + x &&= 1 + 1 \cdot x &&= 1 + nx
               \end{alignat*}
-              Since $1 + nx \geq 1 + nx$, the inequality holds for $n = 1$.
-            \item Inductive step: Suppose $\parens{1 + x}^n \geq 1 + nx$.
+              Since $1 + nx \geq 1 + nx$ (since any number is 
+              greater than or equal to itself), the inequality holds for $n = 1$.
+            \item Inductive step: Assume $\parens{1 + x}^n \geq 1 + nx$.
+              We show that the invariant holds for $n+1$.
               \begin{alignat*}{5}
                 &\parens{1 + x}^{n+1} &&= \crim{\parens{1 + x}^n} \parens{1 + x} \\
                 & &&\geq \crim{\parens{1 + nx}} \parens{1 + x} &&= 1 + x + nx + nx^2 \\

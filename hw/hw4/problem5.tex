@@ -5,5 +5,56 @@
   theorem we proved in class.
 \end{problem}
 \begin{answer}
-  
+  \begin{definition}
+    A metric space $X$ is sequentially compact if every sequence in $X$
+    has a convergent subsequence converging to a point in $X$.
+  \end{definition}
+
+  \begin{definition}
+    A subset $S$ of a metric space $X$ is limit-point compact if every infinite subset of $S$
+    has a limit point in $S$.
+  \end{definition}
+
+  \begin{claim}~\label{claim:5.1}
+    If a subsequence of a sequence converges to a point in $S$,
+    then the sequence also converges to that point.
+
+    \begin{proof}
+      Let $X$ be a metric space and $S \subseteq X$.
+      Let $P \colonequals \braces{p_n}_1^\infty \subseteq S$ be a sequence in $S$,
+      and let $Q \colonequals \braces{p_{n_k}}_1^\infty \subseteq P$ be a subsequence of $P$.
+      Suppose $Q$ converges to $q \in S$.
+      Then, for every $\epsilon > 0$, there exists $N \in \N$ such that
+      $d(q_n, q) < \epsilon$ for all $n \geq N$.
+      Since $Q \subseteq P$, this implies that $d(p_k, q) < \epsilon$ for
+      infinitely many distinct $k \in \N$,
+      hence $d(p_k, q) > \epsilon$ for finite $k \in \N$.
+      Pick $K = \max \set{k \in \N \given d(p_k, q) > \epsilon}$.
+      Then, for all $n \geq K$, $d(p_n, q) < \epsilon$,
+      so $P$ also converges to $q$.
+    \end{proof}
+  \end{claim}
+
+  \begin{claim}
+    If $S$ is sequentially compact then $S$ is limit-point compact.
+
+    \begin{proof}
+      For any infinite subset of $S$,
+      we can construct a sequence $P$ in $S$ by picking any arbitrary
+      element $p_1$ in the subset,
+      then picking any arbitrary element $p_2$ in the subset that is not $p_1$,
+      and so on.
+      Since the subset is infinite, we can always pick an element that is not
+      in the sequence so far.
+
+      \step
+      Suppose $S$ is sequentially compact.
+      Then, by definition of sequential compactness,
+      every such sequence $P$ in $S$ has a convergent subsequence
+      $Q$ converging to some point $q \in S$.
+      By claim~\ref{claim:5.1}, $P$ also converges to $q$,
+      so $P$ itself has a limit point in $S$. \\
+      Therefore, $S$ is limit-point compact.
+    \end{proof}
+  \end{claim}
 \end{answer}

@@ -21,14 +21,14 @@
     $\liminf\limits_{n \to \infty}{a_n} \leq \limsup\limits_{n \to \infty}{a_n}$
     \begin{proof}
       Let $L = \liminf\limits_{n \to \infty}{a_n}$ and $U = \limsup\limits_{n \to \infty}{a_n}$.
-      By the definitions of $\liminf$ and $\limsup$, for any $\epsilon > 0$, there exist indices $n_1, n_2 \in \N$ such that
+      By the definitions of $\liminf$ and $\limsup$, for any $\epsilon > 0$, there exist
+      $n_1, n_2 \in \N$ such that
       \begin{align*}
-        a_n &> L - \epsilon \quad \text{for infinitely many } n > n_1 \\
-        a_n &< U + \epsilon \quad \text{for infinitely many } n > n_2
+        a_n &\ge L - \epsilon \quad \text{for infinitely many } n > n_1 \\
+        a_n &\le U + \epsilon \quad \text{for infinitely many } n > n_2
       \end{align*}
-      Since $a_n > L - \epsilon$ for infinitely many $n$, and $a_n < U + \epsilon$ for infinitely many $n$,
-      it implies that $L - \epsilon < U + \epsilon$.
-      Since this holds for any $\epsilon > 0$, we conclude that $L \leq U$.
+      Thus, for any $n > \max\set{n_1, n_2}$, we have
+      \[ L - \epsilon \le a_n \le U + \epsilon \]
     \end{proof}
   \end{claim}
 
@@ -40,22 +40,16 @@
       Suppose the sequence $A = a_1, a_2, a_3, \ldots$ converges to some point $a$. \\
       Then, for any $\epsilon > 0$, there exists $N \in \N$ such that
       $d(a_n, a) < \epsilon$ for all $n \geq N$,
-      so that $a - \epsilon < a_n < a + \epsilon$.
-      Therefore, $a - \epsilon$ is a lower bound of a set containing
-      infinitely many points of the sequence,
-      and $a + \epsilon$ is an upper bound of a set containing
-      infinitely many points of the sequence.
-      By definition of $\liminf$ and $\limsup$,
-      $\liminf\limits_{n \to \infty}{a_n} \geq a - \epsilon$
-      since it has to be less than or equal to any lower bound of infinitely
-      many points of the sequence. \\
-      Similarly, $\limsup\limits_{n \to \infty}{a_n} \leq a + \epsilon$.\\
-      Therefore,
-      \[ a - \epsilon \leq \liminf\limits_{n \to \infty}{a_n} \leq \limsup\limits_{n \to \infty}{a_n} \leq a + \epsilon \]
+      so that $a - \epsilon < a_n < a + \epsilon$ for infinitely many $n \geq N$.
+      Therefore, $\liminf\limits_{n \to \infty}{a_n} > a - \epsilon$ and
+      $\limsup\limits_{n \to \infty}{a_n} < a + \epsilon$.
+      So we have:
+      \[ a - \epsilon < \liminf\limits_{n \to \infty}{a_n} \leq \limsup\limits_{n \to \infty}{a_n} < a + \epsilon \]
       for any $\epsilon > 0$.
-      By making $\epsilon$ arbitrarily
-      small---which we can, since $A$ converges---we conclude that \\
-      $\liminf\limits_{n \to \infty}{a_n} = \limsup\limits_{n \to \infty}{a_n} = a$.
+
+      \step
+      Given that $\braces{a_n}_1^\infty$ converges, we can make $\epsilon$ arbitrarily
+      small, so that $\liminf\limits_{n \to \infty}{a_n} = \limsup\limits_{n \to \infty}{a_n} = a$.
     \end{proof}
   \end{claim}
   

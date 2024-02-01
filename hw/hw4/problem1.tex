@@ -27,8 +27,20 @@
         a_n &\ge L - \epsilon \quad \text{for infinitely many } n > n_1 \\
         a_n &\le U + \epsilon \quad \text{for infinitely many } n > n_2
       \end{align*}
-      Thus, for any $n > \max\set{n_1, n_2}$, we have
+      Thus, we have
       \[ L - \epsilon \le a_n \le U + \epsilon \]
+      for infinitely many $n$.
+      By making $\epsilon$ arbitrarily small, we have
+      \[ L \le a_n \le U \]
+
+      \step
+      Note: why can we make $\epsilon$ arbitrarily small?
+      This argument stakes on the fact that $L$ is the \emph{infimum} of the set of all
+      numbers such that $r$ such that $a_n < r$ for infinitely many $n$,
+      which means that for any other $L' < L$,
+      the condition does not hold (or else $L$ would not be the greatest such number),
+      so $a_n \ge L'$ for infinitely many $n$.
+      The same argument holds for $U$, in the opposite direction.
     \end{proof}
   \end{claim}
 

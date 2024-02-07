@@ -1,0 +1,33 @@
+\begin{problem}
+  Let $(X, d)$ be a metric space and $a \subset X$.
+  The closure of $A$ is the set
+  \[
+    \overline{A} \colonequals \bigcap \set{
+      E \subset X \given \text{$E$ is closed and $A \subset E$}
+    }.
+  \]
+  Assume $A$ is a connected set.
+  Is $\overline{A}$ connected?
+  Prove or find a counterexample.
+\end{problem}
+
+\begin{answer}
+  $\overline{A}$ is connected.
+  \begin{proof}
+    Let $x_0, y_0 \in \overline{A}$.
+    Let $E \subset X$ be closed and $A \subset E$.
+    Since $E$ is closed, $E^c$ is open.
+    Since $x_0, y_0 \in \overline{A}$, $x_0, y_0 \in E$.
+    Since $A$ is connected, there exists a continuous function
+    $f : A \to \set{0, 1}$ such that $f(x_0) = 0$ and $f(y_0) = 1$.
+    Since $f$ is continuous, $f^{-1}(\set{0})$ and $f^{-1}(\set{1})$ are closed.
+    Since $f^{-1}(\set{0}) \cup f^{-1}(\set{1}) = A$ and $A \subset E$,
+    $f^{-1}(\set{0}) \cup f^{-1}(\set{1}) \subset E$.
+    Since $f^{-1}(\set{0}) \neq \emptyset$ and $f^{-1}(\set{1}) \neq \emptyset$,
+    $f^{-1}(\set{0}) \cap f^{-1}(\set{1}) \neq \emptyset$.
+    Therefore, $f^{-1}(\set{0}) \cap f^{-1}(\set{1})$ is connected.
+    Since $f^{-1}(\set{0}) \cap f^{-1}(\set{1}) \subset A$,
+    $f^{-1}(\set{0}) \cap f^{-1}(\set{1}) \subset \overline{A}$.
+    Therefore, $\overline{A}$ is connected.
+  \end{proof}
+\end{answer}

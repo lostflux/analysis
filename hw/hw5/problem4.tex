@@ -1,0 +1,57 @@
+\begin{problem}
+  Let $(E, d)$ and $(E', d')$ be metric spaces, $f : E \to E'$ be a function,
+  and let $p \in E$. Define the oscillation of $f$ at $p$ to be
+  \[
+    \inf \set{
+      a \in \R \given
+      \text{
+        $\exists$ open ball in $B_r(p) \in E$
+        such that $\forall x, y \in B_r(p)$,
+        $d'(f(x), f(y)) \leq a$
+      }
+    } \]
+    if the set is nonempty, and $+\infty$ otherwise.
+    Prove that $f$ is continuous at $p$ if and only if the oscillation of $f$ at $p$ is $0$,
+    and that for any real number $\epsilon$, the set of points of $E$
+    at which the oscillation of $f$ is at least $\epsilon$ is closed.
+\end{problem}
+\begin{answer}
+  \begin{claim}
+    $f$ is continuous at $p$ if and only if the oscillation of $f$ at $p$ is $0$.
+    \begin{proof}
+      \begin{enumerate}
+        \item ($\Rightarrow$)
+          Suppose $f$ is continuous at $p$.
+          Let $\epsilon > 0$.
+          Then there exists $\delta > 0$ such that
+          for all $x \in E$ with $d(x, p) < \delta$,
+          $d'(f(x), f(p)) < \epsilon$.
+          Therefore, the oscillation of $f$ at $p$ is at most $\epsilon$.
+          Since $\epsilon > 0$ was arbitrary, the oscillation of $f$ at $p$ is $0$.
+        \item ($\Leftarrow$)
+          Suppose the oscillation of $f$ at $p$ is $0$.
+          Let $\epsilon > 0$.
+          Then there exists $\delta > 0$ such that
+          for all $x \in E$ with $d(x, p) < \delta$,
+          $d'(f(x), f(p)) < \epsilon$.
+          Therefore, $f$ is continuous at $p$.
+      \end{enumerate}
+    \end{proof}
+  \end{claim}
+
+  \begin{claim}
+    For any real number $\epsilon$, the set of points of $E$
+    at which the oscillation of $f$ is at least $\epsilon$ is closed.
+    \begin{proof}
+      Let $A \colonequals \set{p \in E \given \text{oscillation of $f$ at $p$ is at least $\epsilon$}}$.
+      We shall show that $A$ is closed.
+      Let $p \in E \setminus A$.
+      Then the oscillation of $f$ at $p$ is less than $\epsilon$.
+      Let $a \in \R$ such that $a < \epsilon$.
+      Then there exists an open ball $B_r(p)$ in $E$ such that
+      for all $x, y \in B_r(p)$, $d'(f(x), f(y)) \leq a$.
+      Therefore, $B_r(p) \subseteq E \setminus A$.
+      Therefore, $E \setminus A$ is open, so $A$ is closed.
+    \end{proof}
+  \end{claim}
+\end{answer}

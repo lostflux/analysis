@@ -1,0 +1,34 @@
+\begin{problem}
+  Let $U, V$ be open intervals in $\R$,
+  and let $f : U \to V$ be a function that is strictly increasing
+  (i.e. if $x, y \in U$ and $x < y$, then $f(x) < f(y)$) and onto.
+  Prove that $f$ and $f^{-1}$ are continuous.
+
+  \begin{answer}
+    \begin{claim}
+      $f$ is continuous.
+      \begin{proof}
+        Let $x_0 \in U$.
+        Let $\epsilon > 0$.
+        Since $f$ is onto, there exists $y_0 \in V$ such that $f(x_0) = y_0$.
+        Since $f$ is strictly increasing, there exists $\delta > 0$ such that
+        $f(x_0 - \delta) < y_0 - \epsilon$ and $f(x_0 + \delta) > y_0 + \epsilon$.
+        Therefore, $f(B_\delta(x_0)) \subseteq B_\epsilon(y_0)$.
+        Therefore, $f$ is continuous at $x_0$ for all $x_0 \in U$.
+      \end{proof}
+    \end{claim}
+
+    \begin{claim}
+      $f^{-1}$ is continuous.
+      \begin{proof}
+        Let $y_0 \in V$.
+        Let $\epsilon > 0$.
+        Since $f$ is onto, there exists $x_0 \in U$ such that $f(x_0) = y_0$.
+        Since $f$ is strictly increasing, there exists $\delta > 0$ such that
+        $f(x_0 - \delta) < y_0 - \epsilon$ and $f(x_0 + \delta) > y_0 + \epsilon$.
+        Therefore, $f(B_\delta(x_0)) \subseteq B_\epsilon(y_0)$.
+        Therefore, $f^{-1}$ is continuous at $y_0$ for all $y_0 \in V$.
+      \end{proof}
+    \end{claim}
+  \end{answer}
+\end{problem}

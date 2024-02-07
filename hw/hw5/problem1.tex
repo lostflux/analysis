@@ -1,0 +1,54 @@
+\begin{problem}
+  Are the following functions $f : \R \to \R$ continuous?
+  Justify your answer.
+
+  \begin{enumroman}
+    \item $\displaystyle f(x) = \begin{cases}
+        0 & \text{if } x < 0 \\
+        x & \text{if } x \geq 0.
+      \end{cases}$
+      \begin{answer}
+        $f$ is continuous.
+        \begin{proof}
+          Let $x_0 \in \R$.
+          \begin{enumerate}
+            \item Case 1: $x_0 < 0$.
+              \begin{align*}
+                \lim_{x \to x_0}{f(x)} &= \lim_{x \to x_0}{0} = 0 = f(x_0)
+              \end{align*}
+            \item Case 2: $x_0 \geq 0$.
+              \begin{align*}
+                \lim_{x \to x_0}{f(x)} &= \lim_{x \to x_0}{x} = x_0 = f(x_0)
+              \end{align*}
+          \end{enumerate}
+          Therefore, $f$ is continuous at $x_0$ for all $x_0 \in \R$.
+        \end{proof}
+      \end{answer}
+
+    \item $\displaystyle f(x) = \begin{cases}
+        0 & \text{if } x \in \R \setminus \Q \\
+        \frac{1}{q} & \text{if } x \colonequals \frac{p}{q} \in \Q \text{ with $p$, $q$ coprime}.
+      \end{cases}$
+
+      \begin{answer}
+        $f$ is not continuous.
+        % \begin{proof}
+        %   Let $x_0 \in \R$.
+        %   \begin{enumerate}
+        %     \item Case 1: $x_0 \in \R \setminus \Q$.
+        %       \begin{align*}
+        %         \lim_{x \to x_0}{f(x)} &= \lim_{x \to x_0}{0} = 0 = f(x_0)
+        %       \end{align*}
+        %     \item Case 2: $x_0 \in \Q$.
+        %       Let $x_0 = \frac{p}{q}$ with $p$, $q$ coprime.
+        %       Let $\epsilon \colonequals \frac{1}{2q}$.
+        %       Since $\Q$ is dense in $\R$, there exists $x \in \R \setminus \Q$
+        %       such that $d(x, x_0) < \epsilon$.
+        %       Then $f(x) = 0$ and $d(f(x), f(x_0)) = \frac{1}{q} > \epsilon$.
+        %       Therefore, $f$ is not continuous at $x_0$.
+        %   \end{enumerate}
+        %   Therefore, $f$ is not continuous at $x_0$ for all $x_0 \in \R$.
+        % \end{proof}
+      \end{answer}
+  \end{enumroman}
+\end{problem}

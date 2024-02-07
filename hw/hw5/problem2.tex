@@ -1,0 +1,24 @@
+\begin{problem}
+  Let $E, E'$ be metric spaces, $f : E \to E'$ be a function,
+  and suppose that $S_1$ and $S_2$ are subsets of $E$
+  such that $S_1 \cup S_2 = E$.
+  Show that if the restrictions of $f$ to $S_1$ and $S_2$ are continuous,
+  then $f$ is continuous.
+
+  \begin{answer}
+    \begin{claim}
+      If the restrictions of $f$ to $S_1$ and $S_2$ are continuous,
+      then $f$ is continuous.
+      \begin{proof}
+        Let $x_0 \in E$.
+        \begin{enumerate}
+          \item Case 1: $x_0 \in S_1$.
+            Since $f|_{S_1}$ is continuous, $\lim_{x \to x_0}{f(x)} = f(x_0)$.
+          \item Case 2: $x_0 \in S_2$.
+            Since $f|_{S_2}$ is continuous, $\lim_{x \to x_0}{f(x)} = f(x_0)$.
+        \end{enumerate}
+        Therefore, $f$ is continuous at $x_0$ for all $x_0 \in E$.
+      \end{proof}
+    \end{claim}
+  \end{answer}
+\end{problem}

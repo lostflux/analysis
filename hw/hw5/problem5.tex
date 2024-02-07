@@ -1,0 +1,23 @@
+\begin{problem}
+  Let $a, b \in \R$, $a < b$, and let $f : [a, b] \to \R$ be a continuous function.
+  Prove that if $f$ is one-to-one then $f([a, b])$ is either
+  $[f(a), f(b)]$ or $[f(b), f(a)]$ (whichever expression makes sense).
+\end{problem}
+\begin{answer}
+  \begin{claim}
+    If $f$ is one-to-one then $f([a, b])$ is either
+    $[f(a), f(b)]$ or $[f(b), f(a)]$.
+    \begin{proof}
+      Let $y_0 \in f([a, b])$.
+      Then there exists $x_0 \in [a, b]$ such that $f(x_0) = y_0$.
+      Let $y_1 \in f([a, b])$.
+      Then there exists $x_1 \in [a, b]$ such that $f(x_1) = y_1$.
+      Since $f$ is one-to-one, $x_0 \neq x_1$ implies $y_0 \neq y_1$.
+      Therefore, $f([a, b])$ is an interval.
+      Since $f$ is continuous, $f([a, b])$ is connected.
+      Therefore, $f([a, b])$ is an interval.
+      Since $f(a)$ and $f(b)$ are in $f([a, b])$,
+      $f([a, b])$ is either $[f(a), f(b)]$ or $[f(b), f(a)]$.
+    \end{proof}
+  \end{claim}
+\end{answer}

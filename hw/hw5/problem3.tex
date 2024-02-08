@@ -8,26 +8,42 @@
     \begin{claim}
       $f$ is continuous.
       \begin{proof}
-        Let $x_0 \in U$.
-        Let $\epsilon > 0$.
-        Since $f$ is onto, there exists $y_0 \in V$ such that $f(x_0) = y_0$.
-        Since $f$ is strictly increasing, there exists $\delta > 0$ such that
-        $f(x_0 - \delta) < y_0 - \epsilon$ and $f(x_0 + \delta) > y_0 + \epsilon$.
-        Therefore, $f(B_\delta(x_0)) \subseteq B_\epsilon(y_0)$.
-        Therefore, $f$ is continuous at $x_0$ for all $x_0 \in U$.
+        We need to show that for every $x \in U$ and every $\epsilon > 0$,
+        there exists $\delta > 0$ such that for all $u \in U$, if $d(u, x) < \delta$
+        then $d(f(u), f(x)) < \epsilon$.
+
+        \step
+        For any $x \in U$, let $x' \in V$ such that $x' = f(x)$. \\
+        For any $\epsilon > 0$, pick $a', b' \in V$ such that
+        $x' - \epsilon = a' < x' < b' = x' + \epsilon$. \\
+        Since $f$ is onto, there exists $a, b \in U$ such that $f(a) = a'$ and $f(b) = b'$.
+        Furthermore, since $f$ is strictly increasing, $a' < x' < b'$ implies $a < x < b$.
+        Set $\delta = \min\set{x - a, b - x}$. Then, for any $u \in U$,
+        if $d(u, x) < \delta$, then $a < u < b$, meaning $a' < f(u) < b'$ (since $f$ is strictly increasing).
+        This means $d(f(u), x') < \epsilon$, since $(a', b')$ is the open interval or radius $\epsilon$
+        around $x'$. \\
+        Thus, $f$ is continuous.
       \end{proof}
     \end{claim}
 
     \begin{claim}
       $f^{-1}$ is continuous.
       \begin{proof}
-        Let $y_0 \in V$.
-        Let $\epsilon > 0$.
-        Since $f$ is onto, there exists $x_0 \in U$ such that $f(x_0) = y_0$.
-        Since $f$ is strictly increasing, there exists $\delta > 0$ such that
-        $f(x_0 - \delta) < y_0 - \epsilon$ and $f(x_0 + \delta) > y_0 + \epsilon$.
-        Therefore, $f(B_\delta(x_0)) \subseteq B_\epsilon(y_0)$.
-        Therefore, $f^{-1}$ is continuous at $y_0$ for all $y_0 \in V$.
+        We need to show that for every $y \in V$ and every $\epsilon > 0$,
+        there exists $\delta > 0$ such that for all $v \in V$, if $d(v, y) < \delta$
+        then $d(f^{-1}(v), f^{-1}(y)) < \epsilon$.
+
+        \step
+        For any $y' \in V$, let $y \in U$ such that $y = f^{-1}(y')$ --- (or, $y' = f(y)$). \\
+        For any $\epsilon > 0$, pick $a, b \in U$ such that
+        $y - \epsilon = a < y < b = y + \epsilon$. \\
+        Let $a', b' \in V$ such that $f(a) = a'$ and $f(b) = b'$.
+        Since $f$ is strictly increasing, $a < y < b$ implies $a' < y' < b'$.
+        Set $\delta = \min\set{y' - a', b' - y'}$. Then, for any $v \in V$, let $u \in U$ such that $v = f(u)$ and $u = f^{-1}(v)$.
+        Then, if $d(v, y') < \delta$, then $a' < v' < b'$, meaning $a < f^{-1}(v') < b$ (since $f$ is strictly increasing).
+        This means $d(f^{-1}(v), y') < \epsilon$, since $(a, b)$ is the open interval or radius $\epsilon$
+        around $y'$. \\
+        Thus, $f^{-1}$ is continuous.
       \end{proof}
     \end{claim}
   \end{answer}

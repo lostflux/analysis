@@ -1,5 +1,5 @@
 \begin{problem}
-  Let $(X, d)$ be a metric space and $a \subset X$.
+  Let $(X, d)$ be a metric space and $A \subset X$.
   The closure of $A$ is the set
   \[
     \overline{A} \colonequals \bigcap \set{
@@ -14,20 +14,36 @@
 \begin{answer}
   $\overline{A}$ is connected.
   \begin{proof}
-    Let $x_0, y_0 \in \overline{A}$.
-    Let $E \subset X$ be closed and $A \subset E$.
-    Since $E$ is closed, $E^c$ is open.
-    Since $x_0, y_0 \in \overline{A}$, $x_0, y_0 \in E$.
-    Since $A$ is connected, there exists a continuous function
-    $f : A \to \set{0, 1}$ such that $f(x_0) = 0$ and $f(y_0) = 1$.
-    Since $f$ is continuous, $f^{-1}(\set{0})$ and $f^{-1}(\set{1})$ are closed.
-    Since $f^{-1}(\set{0}) \cup f^{-1}(\set{1}) = A$ and $A \subset E$,
-    $f^{-1}(\set{0}) \cup f^{-1}(\set{1}) \subset E$.
-    Since $f^{-1}(\set{0}) \neq \emptyset$ and $f^{-1}(\set{1}) \neq \emptyset$,
-    $f^{-1}(\set{0}) \cap f^{-1}(\set{1}) \neq \emptyset$.
-    Therefore, $f^{-1}(\set{0}) \cap f^{-1}(\set{1})$ is connected.
-    Since $f^{-1}(\set{0}) \cap f^{-1}(\set{1}) \subset A$,
-    $f^{-1}(\set{0}) \cap f^{-1}(\set{1}) \subset \overline{A}$.
+    Suppose, for contradiction, that $\overline{A}$ is not connected.
+    Then, there exist nonempty disjoint sets $U, V \subset X$ such that:
+    \begin{enumarabic}
+      \item $\overline{A} = U \cup V$~\label{item:1}
+      \item $\overline{A} \cap U \neq \emptyset$~\label{item:2}
+      \item $\overline{A} \cap V \neq \emptyset$~\label{item:3}
+      \item $U \cap V = \emptyset$~\label{item:4}
+    \end{enumarabic}
+    By the definition of $\overline{A}$, $A \subseteq \overline{A}$
+    (since $\overline{A}$ is a union of closed sets containing $A$).
+    Then, by \ref{item:1}, $A \subseteq U \cup V$. \\
+    But since $A$ is connected, $A$ must be fully contained in either $U$ or $V$
+    since $U$ and $V$ are disjoint(by~\ref{item:4}).
+    \begin{enumarabic}
+      \item If $A \subseteq U$, then for any $a \in A$, $a \in U$
+        and $a \not \in V$. \\
+        But, by~\ref{item:3}, $\overline{A} \cap V \neq \emptyset$,
+        so there must be some element $v \in V$ such that $v \in \overline{A}$.
+        This implies that $v$ is contained in every closed set containing $A$,
+        so $v$ is contained in $U$, which is a contradiction of the fact that $U \cap V = \emptyset$.
+
+      \item If $A \subseteq V$, then for any $a \in A$, $a \in V$
+        and $a \not \in U$. \\
+        But, by~\ref{item:2}, $\overline{A} \cap U \neq \emptyset$,
+        so there must be some element $u \in U$ such that $u \in \overline{A}$.
+        This implies that $u$ is contained in every closed set containing $A$,
+        so $u$ is contained in $V$, which is a contradiction of the fact that $U \cap V = \emptyset$.
+
+    \end{enumarabic}
     Therefore, $\overline{A}$ is connected.
+    
   \end{proof}
 \end{answer}

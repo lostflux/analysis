@@ -5,7 +5,7 @@
     \inf \set{
       a \in \R \given
       \text{
-        $\exists$ open ball in $B_r(p) \in E$
+        $\exists$ open ball $B_r(p) \in E$
         such that $\forall x, y \in B_r(p)$,
         $d'(f(x), f(y)) \leq a$
       }
@@ -19,23 +19,26 @@
   \begin{claim}
     $f$ is continuous at $p$ if and only if the oscillation of $f$ at $p$ is $0$.
     \begin{proof}
-      \begin{enumerate}
+      First, we shall show that if $f$ is continuous at $p$, then the oscillation of $f$ at $p$ is $0$.
+      Then, we shall show that if the oscillation of $f$ at $p$ is $0$, then $f$ is continuous at $p$.
+      \begin{enumarabic}
         \item ($\Rightarrow$)
           Suppose $f$ is continuous at $p$.
           Let $\epsilon > 0$.
           Then there exists $\delta > 0$ such that
           for all $x \in E$ with $d(x, p) < \delta$,
           $d'(f(x), f(p)) < \epsilon$.
-          Therefore, the oscillation of $f$ at $p$ is at most $\epsilon$.
-          Since $\epsilon > 0$ was arbitrary, the oscillation of $f$ at $p$ is $0$.
+          This means that for all $x, y \in B_\delta(p)$, $d'(f(x), f(y)) < \epsilon$.
+          Knowing that $f$ is contunyous at $p$, we can pick $\epsilon$ such that
+          the corresponding $\delta$ is arbitrarily small, so the oscillation of $f$ at $p$ is $0$.
         \item ($\Leftarrow$)
           Suppose the oscillation of $f$ at $p$ is $0$.
-          Let $\epsilon > 0$.
-          Then there exists $\delta > 0$ such that
-          for all $x \in E$ with $d(x, p) < \delta$,
-          $d'(f(x), f(p)) < \epsilon$.
+          This means that for all $\epsilon > 0$, there exists an open ball $B_r(p)$ in $E$ such that
+          for all $x, y \in B_r(p)$, $d'(f(x), f(y)) \leq \epsilon$.
+          Set $\delta = r$, and we have that for all $x \in E$ with $d(x, p) < \delta$,
+          $d'(f(x), f(p)) < \epsilon$, which is the definition of continuity.
           Therefore, $f$ is continuous at $p$.
-      \end{enumerate}
+      \end{enumarabic}
     \end{proof}
   \end{claim}
 
@@ -43,15 +46,26 @@
     For any real number $\epsilon$, the set of points of $E$
     at which the oscillation of $f$ is at least $\epsilon$ is closed.
     \begin{proof}
-      Let $A \colonequals \set{p \in E \given \text{oscillation of $f$ at $p$ is at least $\epsilon$}}$.
-      We shall show that $A$ is closed.
-      Let $p \in E \setminus A$.
-      Then the oscillation of $f$ at $p$ is less than $\epsilon$.
-      Let $a \in \R$ such that $a < \epsilon$.
-      Then there exists an open ball $B_r(p)$ in $E$ such that
-      for all $x, y \in B_r(p)$, $d'(f(x), f(y)) \leq a$.
-      Therefore, $B_r(p) \subseteq E \setminus A$.
-      Therefore, $E \setminus A$ is open, so $A$ is closed.
+      Let $A = \set{p \in E \given \text{oscillation of $f$ at $p$} \geq \epsilon}$.
+      We will show that $A$ is closed by showing that every limit point of $A$ is in $A$.
+      Let $p \in E$ be a limit point of $A$ and suppose, for contradiction,
+      that $p \notin A$.
+      Then, the oscillation of $f$ at $p$ is less than $\epsilon$ (by the definition of $A$).
+      This means that there exists an open ball $B_r(p)$ in $E$ such that
+      for all $x, y \in B_r(p)$, $d'(f(x), f(y)) < \epsilon$.
+      But since $p$ is a limit point of $A$, there exists $q \in A$ such that $q \in B_r(p)$.
+      Then, the oscillation of $f$ at $q$ is at least $\epsilon$ (by the definition of $A$, since $q \in A$).
+      This means that there exists an open ball $B_s(q)$ in $E$ such that
+      for all $x, y \in B_s(q)$, $d'(f(x), f(y)) \geq \epsilon$.
+      Pick a point $a \in B_s(q)$ such that $a \in B_r(p)$,
+      then we have:
+      \begin{enumarabic}
+        \item $d(f(a), f(q)) \geq \epsilon$ (since $q \in A$).
+        \item $d(f(a), f(q)) \geq \epsilon$ (since $a, q \in B_r(p)$).
+      \end{enumarabic}
+      Clearly, both of these statements cannot be true at the same time.
+      This is a contradiction, so our assumption that $p \notin A$ must be false.
+      Therefore, $p \in A$, so $A$ is closed.
     \end{proof}
   \end{claim}
 \end{answer}

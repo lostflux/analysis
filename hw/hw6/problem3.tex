@@ -9,5 +9,52 @@
 \end{problem}
 
 \begin{answer}
+  We will show that $m$ is continuous on $[a, b]$.
+  The proof for $M$ is analogous.
 
+  \begin{claim}
+    The function $m$ is continuous on $[a, b]$.
+    \begin{proof}
+      Let $x_0 \in [a, b]$.
+      We need to show that
+      $\displaystyle \lim_{x \to x_0} m(x) = m(x_0)$.
+
+
+      First, note that by definition of $m$,
+      $m(x) \leq f(x)$ for all $x \in [a, b]$.
+      Thus, $m$ is bounded above by $f$.
+      Since $f$ is continuous on $[a, b]$, we have
+      $\displaystyle \lim_{x \to x_0} f(x) = f(x_0)$.\\
+      Thus, for every $\epsilon > 0$
+      there exists $\delta > 0$ such that
+      $\crim{\abs{x - x_0} < \delta} \implies \crim{\abs{f(x) - f(x_0)} < \epsilon}$.
+      
+      \step
+      For any such $\epsilon$ and $\delta$, pick $x$ so that $\abs{x - x_0} < \delta$.
+      We claim that $\abs{m(x) - m(x_0)} < \epsilon$.
+      To show this, we shall demonstrate that $m(x_0) - \epsilon < m(x) < m(x_0) + \epsilon$.
+
+      \begin{enumarabic}
+        \item Proof that $m(x_0) - \epsilon < m(x)$:
+          \zaff{
+            \begin{alignat*}{5}
+              &m(x_0) - \epsilon  &&\leq f(x_0) - \epsilon && &&\text{since $m(x_0) \leq f(x_0)$} \\
+                                & &&\qquad< f(x) \qquad  && &&\text{since $\abs{f(x) - f(x_0)} < \epsilon$} \\
+                                & &&\qquad \qquad \leq \inf \set{ f(y) \given a \leq y \leq x } \\
+                                & &&\qquad \qquad = m(x)
+            \end{alignat*}
+          }
+        \item Proof that $m(x) < m(x_0) + \epsilon$:
+          \zaff{
+            \begin{alignat*}{5}
+              &m(x) &&\leq f(x) \\
+                  & &&\qquad < f(x_0) + \epsilon \\
+                  & &&\qquad \qquad \leq \crim{\inf \set{ f(y) \given a \leq y \leq x_0 }} + \epsilon \\
+                  & &&\qquad \qquad = \crim{m(x_0)} + \epsilon
+            \end{alignat*}
+          }
+      \end{enumarabic}
+
+    \end{proof}
+  \end{claim}
 \end{answer}

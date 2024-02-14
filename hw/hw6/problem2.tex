@@ -6,8 +6,60 @@
       0 & \text{if } (x, y) = (0, 0)
     \end{cases}
   \]
+  is continuous.
 \end{problem}
 
 \begin{answer}
 
+  \begin{claim}
+    The function $f$ is continuous at all points $(x, y) \neq (0, 0)$.
+
+    \begin{proof}
+      Note that the function $f$ is a composition of two functions;
+      $f = h \circ g$, where
+
+      \begin{minipage}{0.4\textwidth}
+        \begin{align*}
+          g : \mathbb{R}^2 &\to \mathbb{R} \\
+          (x, y) &\mapsto x^2 + y^2
+        \end{align*}
+      \end{minipage}%
+      \begin{minipage}{0.1\textwidth}
+        and
+      \end{minipage}%
+      \begin{minipage}{0.1\textwidth}
+        \begin{align*}
+          h : \mathbb{R} &\to \mathbb{R} \\
+          t &\mapsto \frac{1}{t}.
+        \end{align*}
+      \end{minipage}
+
+      \step
+      Since $g$ and $h$ are both continuous over
+      $U \colonequals \set{ p \in \R^2 \given p \neq (0, 0) }$,
+      Their is composition is also continuous over $U$.
+    \end{proof}
+  \end{claim}
+
+  \begin{claim}
+    The function $f$ is not continuous at $(0, 0)$.
+
+    \begin{proof}
+      $f$ is continuous at $(0, 0)$ if and only if
+      \[
+        \lim_{(x, y) \to (0, 0)} f(x, y) = f(0, 0).
+      \]
+
+      \step
+      However;
+      \[
+        \lim_{(x, y) \to (0, 0)} f(x, y)
+        = \lim_{(x, y) \to (0, 0)} \frac{1}{x^2 + y^2}
+        = \infty,
+      \]
+      so the limit does not exist.
+      However, $f(0, 0) = 0$
+      so $f$ is not continuous at $(0, 0)$.
+    \end{proof}
+  \end{claim}
 \end{answer}

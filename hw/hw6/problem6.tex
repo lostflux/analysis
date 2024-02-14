@@ -6,5 +6,63 @@
 \end{problem}
 
 \begin{answer}
+  We will show that a sequence of functions $f_n : X \to Y$ converges uniformly
+  on $X$ if and only if it is uniformly Cauchy on $X$.
 
+  \begin{claim}
+    The sequence of functions $f_n : X \to Y$ converges uniformly on $X$
+    if and only if it is uniformly Cauchy on $X$.
+    \begin{proof}
+      We will first show that if the sequence of functions $f_n : X \to Y$
+      converges uniformly on $X$, then it is uniformly Cauchy on $X$.
+      We will then show that if the sequence of functions $f_n : X \to Y$
+      is uniformly Cauchy on $X$, then it converges uniformly on $X$.
+      \begin{enumarabic}
+        \item $(\Longrightarrow)$
+        Suppose the sequence of functions $f_n : X \to Y$ converges uniformly on $X$.
+        Then, for every $\epsilon > 0$, there exists an $N \in \N$ such that
+        for all $n, m \geq N$ and all $x \in X$, $\abs{f_n(x) - f_m(x)} < \epsilon$.
+        Thus, for all $n, m \geq N$,
+        \[ \displaystyle \sup_{x \in X} \abs{f_n(x) - f_m(x)} < \epsilon. \]
+        Therefore, the sequence of functions $f_n : X \to Y$ is uniformly Cauchy on $X$.
+  
+        \step
+        \item $(\Longleftarrow)$
+        Suppose the sequence of functions $f_n : X \to Y$ is uniformly Cauchy on $X$.
+        Then, for every $\epsilon > 0$, there exists an $N \in \N$ such that
+        for all $n, m \geq N$,
+        \[ \sup_{x \in X} \abs{f_n(x) - f_m(x)} < \epsilon. \]
+        Since $(Y, d_Y)$ is complete, the sequence of functions $f_n : X \to Y$
+        converges pointwise to some function $f : X \to Y$.
+        We need to show that the sequence converges uniformly on $X$.
+        Meaning, for $\epsilon > 0$.
+        We need to find an $N \in \N$ such that for all $n \geq N$ and all $x \in X$,
+        $\abs{f_n(x) - f(x)} < \epsilon$.
+  
+        \step
+        \begin{enumarabic}
+          \item
+            Since the sequence of functions $f_n : X \to Y$ is uniformly Cauchy on $X$,
+            there exists an $N \in \N$ such that for all $n, m \geq N$,
+            $\displaystyle \sup_{x \in X} \abs{f_n(x) - f_m(x)} < \frac{\epsilon}{2}$.
+          
+          \item
+            Furthermore, since the sequence of functions $f_n : X \to Y$ converges
+            pointwise to $f : X \to Y$,
+            there exists an $N' \in \N$ such that for all $n \geq N'$,
+            $\abs{f_n(x) - f(x)} < \frac{\epsilon}{2}$ for all $x \in X$.
+
+          \item
+            Let $N'' = \max \set{N, N'}$.
+            Then, for all $n \geq N''$ and all $x \in X$,
+        \end{enumarabic}
+        \begin{align*}
+          \abs{f_n(x) - f(x)}
+            &\leq \abs{f_n(x) - f_{N''}(x)} + \abs{f_{N''}(x) - f(x)} \\
+            &\qquad < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon.
+        \end{align*}
+      \end{enumarabic}
+      Thus, the sequence of functions $f_n : X \to Y$ converges uniformly on $X$.
+    \end{proof}
+  \end{claim}
 \end{answer}

@@ -2,13 +2,28 @@
   Let $(X, d_X)$ be a metric space.
   A function $g : X \to \R$ is bounded on $X$
   if $\exists M$ such that $\abs{g(x)} \leq M$ for all $x \in X$.
-
-  \step
   Suppose that $f_n : X \to \R$ is bounded on $X$ for each $n \in \N$.
   Show that if a sequence of of $f_n$ converges uniformly
   to a function $f : X \to \R$ then $f$ is bounded on $X$.
 \end{problem}
 
 \begin{answer}
+  We will show that if a sequence of of $f_n$ converges uniformly
+  to a function $f : X \to \R$ then $f$ is bounded on $X$.
 
+  \begin{claim}
+    If a sequence of of $f_n$ converges uniformly
+    to a function $f : X \to \R$ then $f$ is bounded on $X$.
+    \begin{proof}
+      Since $f_n \to f$ uniformly, for every $\epsilon > 0$,
+      there exists an $N \in \N$ such that for all $n \geq N$ and all $x \in X$,
+      $\abs{f_n(x) - f(x)} < \epsilon$.
+      Since $f_n$ is bounded on $X$ for each $n \in \N$,
+      there exists an $M_n$ such that $\abs{f_n(x)} \leq M_n$ for all $x \in X$.
+      Let $M = \max \set{M_1, M_2, \ldots, M_N}$.
+      Then, for all $x \in X$, $\abs{f(x)} \leq \abs{f(x) - f_N(x)} + \abs{f_N(x)} < \epsilon + M$.
+      Since $\epsilon$ is arbitrary, we have $\abs{f(x)} \leq M$ for all $x \in X$.
+      Thus, $f$ is bounded on $X$.
+    \end{proof}
+  \end{claim}
 \end{answer}

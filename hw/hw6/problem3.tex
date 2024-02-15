@@ -20,41 +20,80 @@
       $\displaystyle \lim_{x \to x_0} m(x) = m(x_0)$.
 
 
-      First, note that by definition of $m$,
-      $m(x) \leq f(x)$ for all $x \in [a, b]$.
-      Thus, $m$ is bounded above by $f$.
+      First, note that:
+      \begin{enumarabic}
+        \item $m(x) \leq f(x)$ for all $x \in [a, b]$, by definition of $m$,
+          so $m$ is bounded above by $f$.
+        \item $m(x)$ is monotonically decreasing on $[a, b]$.
+          This also follows from the definition of $m$, since it is the
+          infimum of all values of $f$ at points less than or equal to $x$.
+      \end{enumarabic}
+    
       Since $f$ is continuous on $[a, b]$, we have
-      $\displaystyle \lim_{x \to x_0} f(x) = f(x_0)$.\\
-      Thus, for every $\epsilon > 0$
+      $\displaystyle \lim_{x \to x_0} f(x) = f(x_0)$.
+      Thus, for any $x_0 \in [a, b]$ and every $\epsilon > 0$
       there exists $\delta > 0$ such that
       $\crim{\abs{x - x_0} < \delta} \implies \crim{\abs{f(x) - f(x_0)} < \epsilon}$.
-      
-      \step
-      For any such $\epsilon$ and $\delta$, pick $x$ so that $\abs{x - x_0} < \delta$.
+      For any such $\epsilon$ and $\delta$, pick $x$ so that $\abs{x - x_0} < \delta$
+      (and, consequently, $\abs{f(x) - f(x_0)} < \epsilon$).
       We claim that $\abs{m(x) - m(x_0)} < \epsilon$.
-      To show this, we shall demonstrate that $m(x_0) - \epsilon < m(x) < m(x_0) + \epsilon$.
 
-      \begin{enumarabic}
-        \item Proof that $m(x_0) - \epsilon < m(x)$:
-          \zaff{
-            \begin{alignat*}{5}
-              &m(x_0) - \epsilon  &&\leq f(x_0) - \epsilon && &&\text{since $m(x_0) \leq f(x_0)$} \\
-                                & &&\qquad< f(x) \qquad  && &&\text{since $\abs{f(x) - f(x_0)} < \epsilon$} \\
-                                & &&\qquad \qquad \leq \inf \set{ f(y) \given a \leq y \leq x } \\
-                                & &&\qquad \qquad = m(x)
-            \end{alignat*}
-          }
-        \item Proof that $m(x) < m(x_0) + \epsilon$:
-          \zaff{
-            \begin{alignat*}{5}
-              &m(x) &&\leq f(x) \\
-                  & &&\qquad < f(x_0) + \epsilon \\
-                  & &&\qquad \qquad \leq \crim{\inf \set{ f(y) \given a \leq y \leq x_0 }} + \epsilon \\
-                  & &&\qquad \qquad = \crim{m(x_0)} + \epsilon
-            \end{alignat*}
-          }
-      \end{enumarabic}
-
+      \step
+        Since $f$ is continuous,
+        by definition of $m$ as an infimum of all previous values of $f$,
+        if $x < x_0$ and $m(x) \neq m(x_0)$
+        then $m(x) = f(y)$ for some $y \in [x, x_0]$. Since all points in that range
+        are within $\delta$ of $x_0$, we have $\abs{f(y) - f(x_0)} < \epsilon$.
+        Furthermore, since $m(x)$ is monotone decreasing,
+        $m(x_0) \leq m(x)$ when $x < x_0$, so $m(x_0) = f(z)$ for some $z \in [x, x_0]$
+        if $m(x) \neq m(x_0)$. Thus, either $m(x) = m(x_0)$ and $\abs{m(x) - m(x_0)} = 0$
+        or 
+        \[ 
+          \abs{m(x) - m(x_0)} = \abs{f(y) - f(z)} < \epsilon \text{ for some } x_0 - \delta < x < y, z < x_0.
+        \]
+        
+        Since this works for any $\epsilon$ and any $x_0$,
+        we have $\abs{m(x) - m(x_0)} < \epsilon$.
     \end{proof}
+  \end{claim}
+
+  \newpage
+  \begin{claim}
+    The function $M$ is continuous on $[a, b]$.
+    \begin{proof}
+      The proof is analogous to the proof for $m$.
+      Since $M(x) \geq f(x)$ for all $x \in [a, b]$, by definition of $M$,
+      $M$ is bounded below by $f$.
+      Also, $M(x)$ is monotonically increasing on $[a, b]$.
+      This also follows from the definition of $M$, since it is the
+      supremum of all values of $f$ at points less than or equal to $x$.
+      Since $f$ is continuous on $[a, b]$, we have
+      $\displaystyle \lim_{x \to x_0} f(x) = f(x_0)$.
+      Thus, for any $x_0 \in [a, b]$ and every $\epsilon > 0$
+      there exists $\delta > 0$ such that
+      $\crim{\abs{x - x_0} < \delta} \implies \crim{\abs{f(x) - f(x_0)} < \epsilon}$.
+      For any such $\epsilon$ and $\delta$, pick $x$ so that $\abs{x - x_0} < \delta$
+      (and, consequently, $\abs{f(x) - f(x_0)} < \epsilon$).
+      We claim that $\abs{M(x) - M(x_0)} < \epsilon$.
+
+      \step
+        Since $f$ is continuous,
+        by definition of $M$ as an supremum of all previous values of $f$,
+        if $x < x_0$ and $M(x) \neq M(x_0)$
+        then $M(x) = f(y)$ for some $y \in [x, x_0]$. Since all points in that range
+        are within $\delta$ of $x_0$, we have $\abs{f(y) - f(x_0)} < \epsilon$.
+        Furthermore, since $M(x)$ is monotone increasing,
+        $M(x_0) \geq M(x)$ when $x < x
+        0$, so $M(x_0) = f(z)$ for some $z \in [x, x_0]$
+        if $M(x) \neq M(x_0)$. Thus, either $M(x) = M(x_0)$ and $\abs{M(x) - M(x_0)} = 0$
+        or
+        \[ 
+          \abs{M(x) - M(x_0)} = \abs{f(y) - f(z)} < \epsilon \text{ for some } x_0 - \delta < x < y, z < x_0.
+        \]
+
+        Since this works for any $\epsilon$ and any $x_0$,
+        we have $\abs{M(x) - M(x_0)} < \epsilon$.
+    \end{proof}
+
   \end{claim}
 \end{answer}

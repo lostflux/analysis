@@ -21,7 +21,11 @@
       Since $f_n$ is bounded on $X$ for each $n \in \N$,
       there exists an $M_n$ such that $\abs{f_n(x)} \leq M_n$ for all $x \in X$.
       Let $M = \max \set{M_1, M_2, \ldots, M_N}$.
-      Then, for all $x \in X$, $\abs{f(x)} \leq \abs{f(x) - f_N(x)} + \abs{f_N(x)} < \epsilon + M$.
+      Then, for all $x \in X$,
+      \begin{align*}
+        \abs{f(x)} \leq \underbrace{\abs{f(x) - f_N(x)}}_{<\, \epsilon}
+        + \underbrace{\abs{f_N(x)}}_{<\, M} < \epsilon + M
+      \end{align*}
       Since $\epsilon$ is arbitrary, we have $\abs{f(x)} \leq M$ for all $x \in X$.
       Thus, $f$ is bounded on $X$.
     \end{proof}

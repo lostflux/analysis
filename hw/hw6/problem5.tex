@@ -11,18 +11,11 @@
   Let $\epsilon > 0$.
   We need to find an $N \in \N$ such that for all $n \geq N$ and all $p \in E$,
   $\abs{f_n(p) - f(p)} < \epsilon$.
-
-  \begin{claim}
-    There exists an $N \in \N$ such that for all $n \geq N$ and all $p \in E$,
-    $\abs{f_n(p) - f(p)} < \epsilon$.
-    \begin{proof}
-      Since $f_n \to f$, for every $p \in E$, there exists an $N_p \in \N$
-      such that for all $n \geq N_p$, $\abs{f_n(p) - f(p)} < \frac{\epsilon}{3}$.
-      Since $E$ is compact, there exists a finite subcover $\set{U_1, U_2, \ldots, U_k}$
-      of $E$.
-      Let $N = \max \set{N_{p_1}, N_{p_2}, \ldots, N_{p_k}}$.
-      Then, for all $n \geq N$ and all $p \in E$, $\abs{f_n(p) - f(p)} < \epsilon$.
-    \end{proof}
-  \end{claim}
+  Since $f_n \to f$, for every $p \in E$, there exists an $N_p \in \N$
+  such that for all $n \geq N_p$, $\abs{f_n(p) - f(p)} < \frac{\epsilon}{3}$.
+  Since $E$ is compact, there exists a finite subcover $\set{U_1, U_2, \ldots, U_k}$
+  of $E$.
+  Let $N = \max \set{N_{p_1}, N_{p_2}, \ldots, N_{p_k}}$.
+  Then, for all $n \geq N$ and all $p \in E$, $\abs{f_n(p) - f(p)} < \epsilon$.
   Thus, the sequence $f_1, f_2, f_3, \ldots$ converges uniformly to $f$.
 \end{answer}

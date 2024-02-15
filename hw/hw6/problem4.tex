@@ -15,10 +15,9 @@
             For any $x_1 \in \R$, pick $x_2 = x_1 + \frac{\delta}{2}$.
             Then,
             \begin{align*}
-              \abs{f(x_1) - f(x_2)} &< \epsilon \\
-                &\implies \abs{x_1^2 - (x_1 + \frac{\delta}{2})^2} < 1 \\
-                &\implies \abs{x_1^2 - x_1^2 - \delta x_1 - \frac{\delta^2}{4}} < 1 \\
-                &\implies \abs{\delta x_1 + \frac{\delta^2}{4}} < 1 \\
+              \abs{f(x_1) - f(x_2)}
+                = \abs{(x_1 + \frac{\delta}{2})^2 - x_1^2}
+                = \abs{\delta x_1 + \frac{\delta^2}{4}} < \epsilon = 1
             \end{align*}
             However, since $\R$ is unbounded, we can pick $x_1$ such that
             $x_1 > \frac{1}{\delta}$, so that $\delta x_1 > 1$.

@@ -4,10 +4,35 @@
   Let $U = (a, b) \subset \R$, and let $f$ and $g$ be differentiable
   real-valued functions on $U$, with $g$ and $g'$ nowhere zero on $U$.
   Suppose that
-  $\displaystyle \lim_{x \to a} f(x) = \lim_{x \to a+} g(x) = 0$..
+  $\displaystyle \lim_{x \to a} f(x) = \lim_{x \to a+} g(x) = 0$.
   Then, \[ \lim_{x \to a+} \frac{f(x)}{g(x)} = \lim_{x \to a+} \frac{f'(x)}{g'(x)} \]
   if the limit exists.
 \end{problem}
+
 \begin{answer}
+  Given that \( f \) and \( g \) are differentiable on \( U = (a, b) \) and \( g' \)
+  is nowhere zero on \( U \), and that \( \displaystyle \lim_{x \to a} f(x) = \lim_{x \to a+} g(x) = 0 \),
+  we aim to prove \( \displaystyle \lim_{x \to a+} \frac{f(x)}{g(x)} = \lim_{x \to a+} \frac{f'(x)}{g'(x)} \)
+  if the limit exists.
+
+  Consider a sequence \( \{x_n\} \) in \( U \) converging to \( a \) from the right.
+  For each \( n \), by the Cauchy Mean Value Theorem, there exists \( c_n \in (a, x_n) \) such that
+  \[ \frac{f'(c_n)}{g'(c_n)} = \frac{f(x_n) - f(a)}{g(x_n) - g(a)}. \]
+  As $n \to \infty$ and $x_n \to a+$, we have:
+  \begin{enumroman}
+    \item As $n \to \infty$, $x_n \to a+$; so $c_n \to a+$.
+    \item Thus, $f(c_n) \to f(a) = 0$ and $g(c_n) \to g(a) = 0$.
+  \end{enumroman}
   
+  \( f(x_n) \to 0 \) and \( g(x_n) \to 0 \),
+  so the right-hand side becomes \( \displaystyle \frac{f(a)}{g(a)} \).
+  Thus, we have \[ \lim_{}\frac{f'(c_n)}{g'(c_n)} = \frac{f(a)}{g(a)}. \]
+
+  \step
+  Thus, we can rewrite $\displaystyle \frac{f(a)}{g(a)} = \lim_{c_n \to a+} \frac{f(c_n)}{g(c_n)}$.
+  This means that
+  \[ \lim_{n \to \infty} \frac{f'(c_n)}{g'(c_n)} = \frac{f(a)}{g(a)} \]
+  implies that
+  \[ \lim_{x \to a+} \frac{f'(x)}{g'(x)} = \lim_{x \to a+} \frac{f(x)}{g(x)} \]
+  if the limit exists.
 \end{answer}

@@ -1,11 +1,36 @@
 \begin{problem}
   Let $f, g, f_n$ be real-valued functions on $[a, b] \subset \R$
   for all $n \in \N$. Assume $f_n \in C^1([a, b])$ for all $n \in \N$.
-  Suppose that $f_n \to f$ pointwise and $f'_n \to g$ uniformly
-  as $n \to \infty$. Show that $f \in C^1([a, b])$. $f' = g$,
-  and $f_n' \to f'$ uniformly as $n \to \infty$.
+  Suppose that $f_n \to f$ pointwise and $f'_n \uto g$ uniformly
+  as $n \to \infty$. Show that $f \in C^1([a, b])$, $f' = g$,
+  and $f_n' \uto f'$ uniformly as $n \to \infty$.
 \end{problem}
 
 \begin{answer}
-  
+  We are given that \( f_n \to f \) pointwise and \( f'_n \uto g \) uniformly
+  as \( n \to \infty \). We need to show that \( f \in C^1([a, b]) \),
+  \( f' = g \), and \( f_n' \uto f' \) uniformly as \( n \to \infty \).
+
+  \begin{enumarabic}
+    \item First, we show that \( f \in C^1([a, b]) \) and \( f' = g \).~\label{part:4.1} \\
+      \zaff{
+        Since \( f_n \in C^1([a, b]) \) for all \( n \in \mathbb{N} \), each \( f_n \) is differentiable
+        with a continuous derivative. The uniform convergence of \( f'_n \uto g \)
+        and the pointwise convergence of \( f_n  \to f \) implies that \( f \) is differentiable
+        and \( f' = g \). This follows from the fact that the uniform limit of continuous functions
+        is continuous (hence $g$ is continuous),
+        and the limit of the derivatives is the derivative of the limit function.
+      }
+
+    \item Next, we show that \( f_n' \to f' \) uniformly as \( n \to \infty \). \\
+      \zaff{
+        We are given that \( f'_n \to g \) uniformly as $n \to \infty$
+        and, from Part~\ref{part:4.1}, we have established that \( f' = g \). \\
+        Therefore, \( f_n' \to f' \) uniformly. \\
+        \crim{
+          Do I need to show more for this? I wasn't sure.
+        }
+      }
+
+  \end{enumarabic}
 \end{answer}

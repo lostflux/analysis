@@ -2,7 +2,7 @@
   Let $a, b \in \R$, $a < b$, and let $f, g$ be continuous
   real-valued functions on $[a, b]$ that are differentiable
   on $(a, b)$.
-  Prove that there exists a number $c \in (a, b)$ such that
+  Prove that there exists a point $c \in (a, b)$ such that
   \[ f'(c) \parens{g(b) - g(a)} = g'(c)\parens{f(b) - f(a)} \]
 
   \step
@@ -13,6 +13,41 @@
       - \parens{g(x) - g(a)} \parens{f(b) - f(a)}  
     \]
 \end{problem}
+
+
 \begin{answer}
-  
+  Consider the function $F(x)$ as suggested in the hint.
+  We have \( F(a) = F(b) = 0 \) because;
+  \begin{enumarabic}
+    \item At $x = a$, the terms \crim{$f(x) - f(a)$} and \zaff{$g(x) - g(a)$}
+      become zero, so
+      \[
+        F(a) = \crim{(f(x) - f(a))} \parens{g(b) - g(a)}
+        \quad - \quad \zaff{(g(x) - g(a))} \parens{f(b) - f(a)}
+        \quad = \quad 0.
+      \]
+    \item At $x = b$, \crim{$(f(x) - f(a)) = (f(b) - f(a))$}
+      and \zaff{$(g(x) - g(a)) = (g(b) - g(a))$},
+      so \[
+        F(b) = \crim{(f(b) - f(a))} \zaff{\parens{g(b) - g(a)}}
+        \quad - \quad \zaff{(g(b) - g(a))} \crim{\parens{f(b) - f(a)}}
+        \quad = \quad 0.
+      \]
+  \end{enumarabic}
+
+  Now, we can apply Rolle's Theorem, which states that if a function is continuous on $[a, b]$
+  and differentiable on $(a, b)$, and $F(a) = F(b)$, then there exists
+  some $\sigma \in (a, b)$ such that $F'(\sigma) = 0$.
+  Differentiating $F(x)$, we get
+  \[
+    F'(x) = f'(x) \parens{g(b) - g(a)} - g'(x) \parens{f(b) - f(a)}
+  \]
+  Setting $F'(\sigma) = 0$ gives
+  \(
+    f'(\sigma) \parens{g(b) - g(a)} - g'(\sigma) \parens{f(b) - f(a)} = 0,
+  \)
+  which implies that
+  \[ f'(\sigma) \parens{g(b) - g(a)} = g'(\sigma) \parens{f(b) - f(a)}. \]
+  Therefore, there exists a point $c \colonequals \sigma \in (a, b)$ such that
+  \[ f'(c) \parens{g(b) - g(a)} = g'(c)\parens{f(b) - f(a)}. \]
 \end{answer}

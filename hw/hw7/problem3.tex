@@ -4,5 +4,31 @@
 \end{problem}
 
 \begin{answer}
-  
+  We will use Taylor's Theorem to prove the binomial theorem for $n \in \N$.
+  Let $f : \R \to \R$ with $f(x) = x^n$.
+
+  \begin{enumarabic}
+    \item First, consider the value of $f$ at $x = a$:
+      \[ f(a) = a^n \]
+    \item Next, consider the derivatives of $f$:
+      \begin{align*}
+        f'(x) &= n(x)^{n-1} &= \frac{n}{(n-1)!} (x)^{n-1} \\
+        f''(x) &= n(n-1)(x)^{n-2} &= \frac{n}{(n-2)!} (x)^{n-2} \\
+        f'''(x) &= n(n-1)(n-2)(x)^{n-3} &= \frac{n}{(n-3)!} (x)^{n-3} \\
+        &\vdots \\
+        f^{(k)}(x) &= n(n-1)\cdots(n-k+1)(x)^{n-k} &= \frac{n!}{(n-k)!} (x)^{n-k} \\
+        &\vdots \\
+        f^{(n)}(x) &= n! &= n!
+      \end{align*}
+    \item Now, consider the Taylor expansion of $f(x)$ about a point $a \in \R$:
+      \[ f(x) = f(a) + f'(a)(x - a) + \frac{f''(a)}{2!}(x - a)^2 + \cdots \]
+    
+    \item Plugging in $f = (x)^n$ into the Taylor expansion gives,
+      with center $a$ and point $a + x$:
+      \[
+        f(a+x) = (a+x)^n = a^n + na^{n-1}x + \frac{n(n-1)}{2}(a + a)^{n-2}x^2
+              + \cdots + x^n,
+      \]
+      which is the binomial theorem for $n \in \N$.
+  \end{enumarabic}
 \end{answer}

@@ -1,9 +1,36 @@
 \begin{problem}
-  Compute $\int_0^1 x \d x$ directly from the definition of the Riemann integral.\\
+  Compute $\displaystyle \int\limits_0^1 x \d x$ directly from the definition of the Riemann integral.\\
   \underline{Hint:} Consider the partition $0 = x_0 < x_1 < \ldots < x_n = 1$
   where $x_i = \frac{i}{n}$ for $i = 0, 1, \ldots, n$.
 \end{problem}
 
 \begin{answer}
+  Consider the upper Riemann integral of the function \crim{$f(x) = x$}
+  over the interval $[0, 1]$;
+  \[
+    I(x) = \sum_{i=1}^n S(x_i) \Delta x_i,
+    \qquad \text{ where }
+    \qquad S(x_i) = \sup \set{ f(x) \given x \in [x_{i-1}, x_i]}
+    \qquad \text{ and }
+    \qquad \Delta x_i = x_i - x_{i-1}.
+  \]
 
+  Given $f(x) = x$, we have $S(x_i) = \sup \set{ x \given x \in [x_{i-1}, x_i]} = x_i$
+  for all $x \in [x_{i-1}, x_i]$.
+  Thus, $I(x) = \sum_{i=1}^n x_i \Delta x_i$.
+  Using the partition $0 = x_0 < x_1 < \ldots < x_n = 1$ where $x_i = \frac{i}{n}$ for $i = 0, 1, \ldots, n$,
+  we have $\Delta x_i = \frac{1}{n}$ for all $i$,
+  so
+  \begin{alignat*}{5}
+    &I(x) &&= \sum_{i=1}^n x_i \cdot \frac{1}{n} &&= \sum_{i=1}^n \frac{i}{n} \cdot \frac{1}{n} \\
+    &     &&    &&= \frac{1}{n^2} \sum_{i=1}^n i \\
+    &     &&    &&= \frac{1}{n^2} \cdot \frac{n(n+1)}{2} \\
+    &     &&    &&= \frac{n+1}{2n}.
+  \end{alignat*}
+
+  As we make the partition finer and finer, the limit of $n$ goes to infinity.
+  We then have:
+  \[
+    \int\limits_0^1 x \d x = \lim_{n \to \infty} I(x) = \lim_{n \to \infty} \frac{n+1}{2n} = \frac{1}{2}.
+  \]
 \end{answer}

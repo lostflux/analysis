@@ -12,9 +12,12 @@
   \]
 \end{problem}
 
-\begin{answer}
-  No, the composition of two Riemann integrable functions is not necessarily Riemann integrable.
-  As a counterexample, consider the functions $g, f : \R \to \R$ as defined anove,
+% \begin{answer}
+  \begin{claim}
+    The composition of two Riemann integrable functions is not necessarily Riemann integrable.
+  \end{claim}
+  \begin{proof}
+    Consider the functions $g, f : \R \to \R$ as defined anove,
   and their composition $g \circ f$.
   Both $g$ and $f$ are Riemann integrable on any interval $[a, b] \subset \R$,
   as priorly shown. However, Let's look at $g \circ f$:
@@ -73,4 +76,6 @@
   \step
   Thus,  $g \circ f$ is not continuous at any point $x \in \R$,
   therefore not Riemann integrable on any interval $[a, b] \subset \R$.
-\end{answer}
+\end{proof}
+ 
+% \end{answer}

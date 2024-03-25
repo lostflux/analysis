@@ -1,22 +1,35 @@
-\documentclass[10pt,reqno]{amsart}
+% vim: set spell spelllang=en_us:
+\documentclass[10pt, final]{article}
+% \documentclass[11pt]{amsart}
 
-% Include the macros file from `../common'
-\input{~/latex-common/macros.tex}
+\input{~/common}
+% \input{~/globals/macros}
 
-\pagestyle{fancy}                       % fancy (allow headers, footers)
-\fancyhf{}                              % clear all header/footer settings.
-\cfoot{\thepage}                        % set page-numbers in footer.
-\renewcommand{\headrulewidth}{0pt}
-% \lhead{\textit{\textbf{ Amittai, S}}}   % set name in header, left.
-% \rhead{\textsc{Math 63}}                % set class name in header, right.
+\hyphenation{auto-morphism auto-morphisms homo-geneous}
 
-\renewcommand{\theenumi}{\alph{enumi}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% \title{%
+%   On the derivations and automorphisms\\
+%   of the algebra $\kk\langle x,y\rangle/(yx-xy-x^N)$
+% }
+% \author{Amittai Siavava\thanks{%
+%     Undergraduate student at Dartmouth College.
+%   }
+% }
+% \ifoptionfinal
+%   {\date{\today}}
+%   {\date{Started on March 2021; compiled \today}}
+
+  
 \begin{document}
-\setlength{\headheight}{13.0pt}
-\setlength{\footskip}{13.0pt}
+
+% \setlength{\headheight}{13.0pt}
+% \setlength{\footskip}{13.0pt}
 \input{cover.tex}
-\bigskip
+% \bigskip
 
 \input{problem1}
 
